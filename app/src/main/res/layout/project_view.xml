@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/background_light"
+    android:paddingLeft="11.3dp"
+    android:paddingRight="11.3dp"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        >
+
+        <TextView
+            android:id="@+id/project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="11.3dp"
+            android:text="互助项目1"
+            android:textColor="#3c3c3c"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/project_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label1"
+            android:text="首标"
+            android:textColor="#F24B41"
+            android:textSize="32px" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/project_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="11dp"
+        android:text="2个月期限  |  10人  |  还差3人  |  7人竞标中"
+        android:textColor="#8c8c8c"
+        android:textSize="32px" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="64px"
+        android:layout_marginTop="20dp"
+        >
+        <TextView
+            android:id="@+id/project_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10000"
+            android:textColor="#3c3c3c"
+            android:textSize="58px"
+            />
+        <TextView
+            android:id="@+id/project_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0%"
+            android:textSize="58px"
+            android:textColor="#F24B41"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            >
+
+            <TextView
+                android:id="@+id/project_helpcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:text="1000"
+                android:textSize="58px" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="积分"
+                android:textColor="#F89418"
+                android:textSize="26px"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/project_helpcount"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="互助总额"
+        android:textSize="32px"
+        android:textColor="#8c8c8c"
+            android:layout_alignParentLeft="true"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扣费后年利率"
+            android:textSize="32px"
+            android:textColor="#8c8c8c"
+            android:layout_centerHorizontal="true"
+
+            />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="授权帮助量"
+        android:textSize="32px"
+        android:textColor="#8c8c8c"
+            android:layout_alignParentRight="true"
+        />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="22.3dp"
+
+        >
+
+        <Button
+            android:id="@+id/project_btn_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button1"
+            android:text="授权帮助"
+            android:textColor="#F89418"
+            android:textSize="38px"
+            android:layout_marginLeft="38dp"
+            android:layout_alignParentLeft="true"
+            />
+        <Button
+            android:id="@+id/project_btn_bidding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button2"
+            android:text="我要竞标"
+            android:textColor="#66DAC7"
+            android:textSize="38px"
+            android:layout_marginRight="38dp"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+</LinearLayout>
