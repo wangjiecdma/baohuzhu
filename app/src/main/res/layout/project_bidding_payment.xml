@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fb"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX项目   "
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首标"
+            android:textColor="#f24b41"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/bidding_rate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="利率："
+
+            />
+        <TextView
+            android:id="@+id/bidding_ratenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_rate_text"
+            android:gravity="center"
+            android:text="1%"
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_renewalrate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="续标利率："
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_renewalratenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_renewalrate_text"
+            android:text="5%"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/bidding_duedate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="截至日期："
+
+            />
+        <TextView
+            android:id="@+id/bidding_duedatenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_duedate_text"
+            android:gravity="center"
+            android:text="2018.09.30"
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_balance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="账户余额："
+            />
+        <TextView
+            android:id="@+id/bidding_balancenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_balance_text"
+            android:gravity="center"
+            android:textColor="#f24b41"
+            android:text="500"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        >
+        <Button
+            android:id="@+id/project_bidding_confirm_btn"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:text="使用余额归还"
+            android:textColor="#ffffff"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <CheckBox
+            android:id="@+id/bidding_payment_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:clickable="true"
+            android:checked="true"
+            />
+        <TextView
+            android:id="@+id/banktransfer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="银行转账归还"
+            android:layout_marginLeft="50dp"
+            />
+        <TextView
+            android:id="@+id/bank_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/banktransfer_text"
+            android:layout_marginLeft="50dp"
+            android:text="银行名："
+            android:paddingTop="10dp"
+            />
+        <TextView
+            android:id="@+id/bankbranch_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/banktransfer_text"
+            android:layout_toRightOf="@id/bank_name_text"
+            android:text="中国工商银行上海支行"
+            android:paddingTop="10dp"
+            />
+        <TextView
+            android:id="@+id/bankcard_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bank_name_text"
+            android:layout_marginLeft="50dp"
+            android:text="银行卡号："
+            android:paddingTop="20dp"
+            />
+        <TextView
+            android:id="@+id/card_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bank_name_text"
+            android:layout_toRightOf="@id/bankcard_text"
+            android:text="6220123456789012345"
+            android:paddingTop="20dp"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/background_button_green"
+            android:text="上传还款凭证"
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

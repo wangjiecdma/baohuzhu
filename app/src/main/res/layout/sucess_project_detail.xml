@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f8f9fb"
+
+    >
+
+
+    <TextView
+        android:id="@+id/detail_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成功案例详情"
+        android:gravity="center"
+        android:textSize="26sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/xx_project_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="XX项目"
+            android:gravity="center"
+            android:textSize="24sp"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:id="@+id/project_amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/xx_project_name"
+            android:gravity="center"
+            android:text="互助总额 :"
+            />
+
+        <TextView
+            android:id="@+id/project_amount_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_amount_text"
+            android:layout_below="@id/xx_project_name"
+            android:gravity="center"
+            android:text="8000"
+            />
+        <TextView
+            android:id="@+id/project_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:layout_below="@id/xx_project_name"
+            android:gravity="center"
+            android:text="互助期限 :"
+            />
+
+        <TextView
+            android:id="@+id/project_date_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_date_text"
+            android:layout_below="@id/xx_project_name"
+            android:gravity="center"
+            android:text="1个月"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/project_rate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="互助利率 :"
+           />
+
+        <TextView
+            android:id="@+id/project_ratenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_rate_text"
+            android:gravity="center"
+            android:text="1%"
+            />
+        <TextView
+            android:id="@+id/project_PopTotal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="需要人数 :"
+            />
+
+        <TextView
+            android:id="@+id/project_PopTotalnum_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_PopTotal_text"
+            android:gravity="center"
+            android:text="10人"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:id="@+id/project_join_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="目前参与 :"
+            />
+
+        <TextView
+            android:id="@+id/preject_joinnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_join_text"
+            android:gravity="center"
+            android:text="8人"
+            />
+        <TextView
+            android:id="@+id/project_bidding_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="竞标人数 :"
+            />
+
+        <TextView
+            android:id="@+id/project_biddingnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_bidding_text"
+            android:gravity="center"
+            android:text="2人"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+    <TextView
+        android:id="@+id/project_datetime_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="项目时间 :"
+        />
+
+    <TextView
+        android:id="@+id/project_datetime_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/project_datetime_text"
+        android:gravity="center"
+        android:text="2018.10.1-2018.10.31"
+        />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="40dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="#66dac7"
+            android:text="竞标者陈XX，成功竞得标的首标使用权!"
+            android:id="@+id/get_project_sucess"
+            />
+    </LinearLayout>
+</LinearLayout>
+

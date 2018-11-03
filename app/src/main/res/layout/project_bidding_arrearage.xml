@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fb"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XX项目   "
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/bidding_amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="互助总额："
+
+            />
+        <TextView
+            android:id="@+id/bidding_amountnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_amount_text"
+            android:gravity="center"
+            android:text="10000"
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_rate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="利率："
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_datenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_rate_text"
+            android:text="1%"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/bidding_duedate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="截至日期："
+
+            />
+        <TextView
+            android:id="@+id/bidding_duedatenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_duedate_text"
+            android:gravity="center"
+            android:text="2018.09.30"
+
+            />
+
+        <TextView
+            android:id="@+id/bidding_rateTotal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="累计利息："
+            />
+
+        <TextView
+            android:id="@+id/bidding_rateTotalnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_rateTotal_text"
+            android:text="10%"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/bidding_arrearage_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="待归还总额："
+            />
+        <TextView
+            android:id="@+id/bidding_arreareagenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_arrearage_text"
+            android:gravity="center"
+            android:text="10000"
+            />
+
+        <TextView
+            android:id="@+id/bidding_balance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="账户余额："
+            />
+
+        <TextView
+            android:id="@+id/bidding_balancenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/bidding_balance_text"
+            android:text="500"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/project_bidding_confirm_btn"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/button1"
+            android:text="我要充值"
+            android:textColor="#f89418"
+            />
+        <Button
+            android:id="@+id/project_bidding_cancle_btn"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45dp"
+            android:background="@drawable/button2"
+            android:text="我要归还"
+            android:textColor="#f24b41"
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

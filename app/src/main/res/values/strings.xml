@@ -1,4 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">baohuzhu</string>
+    <string name="app_name">互助宝</string>
     <string name="title_activity_project">ProjectActivity</string>
+    <string name="title_activity_create_project">ActivityCreateProject</string>
+    <string name="detail_text_view">成功项目详情</string>
+    <string name="xx_project_name">XX项目</string>
+    <string name="project_total_text">互助总额</string>
+    <string name="project_total_edit_view">8000元</string>
+    <string name="test">this is a test</string>
+    <string name="title_activity_project_bidding">ProjectBidding</string>
+    <string name="title_activity_personal_information">ActivityPersonalInformation</string>
 </resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XX项目"
+        android:gravity="center"
+        android:textSize="18dp"
+        />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+            <TextView
+                android:id="@+id/mycreate_sucess_amount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="互助总额："
+                android:textSize="15dp"
+
+                />
+            <TextView
+                android:id="@+id/mycreate_sucess_amountnum_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/mycreate_sucess_amount_text"
+                android:gravity="center"
+                android:text="103000"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:id="@+id/mycreate_sucess_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="205dp"
+                android:gravity="center"
+                android:text="互助期限："
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/mycreate_sucess_datenum_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/mycreate_sucess_date_text"
+                android:text="1个月"
+                android:textSize="15dp"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+            <TextView
+                android:id="@+id/mycreate_sucess_rate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="互助利率："
+                android:textSize="15dp"
+                />
+            <TextView
+                android:id="@+id/mycreate_sucess_ratenum_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/mycreate_sucess_rate_text"
+                android:gravity="center"
+                android:text="1%"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:id="@+id/mycreate_sucess_PopTotal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="205dp"
+                android:gravity="center"
+                android:text="需要人数："
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/mycreate_sucess_PopTotalnum_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/mycreate_sucess_PopTotal_text"
+                android:text="10人"
+                android:textSize="15dp"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/mycreate_sucess_join_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="目前参与："
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/mycreate_sucess_joinnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/mycreate_sucess_join_text"
+            android:gravity="center"
+            android:text="8人"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/mycreate_sucess_submit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="竞标人数："
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/mycreate_sucess_submitnum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/mycreate_sucess_submit_text"
+            android:text="2人"
+            android:textSize="15dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="项目时间 ："
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018.10.01-2018.10.31"
+
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/mycreate_sucess_duedate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="截至日期："
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/mycreate_sucess_duedatenum_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/mycreate_sucess_duedate_text"
+            android:gravity="center"
+            android:text="2018.09.30"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/mycreate_sucess_biddingattri_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="标的性质："
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/mycreate_sucess_demandbidding_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/mycreate_sucess_biddingattri_text"
+            android:text="需求标"
+            android:textSize="15dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="#33CCCC"
+            android:text="创建成功！如果竞标失败将获得种子资金5%的奖励"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
