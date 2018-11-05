@@ -1,10 +1,13 @@
 package com.szty.baohuzhu.activitys;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.szty.baohuzhu.fragments.CustomDatePickerDialogFragment;
+import com.szty.baohuzhu.webapi.WebServiceManager;
 
 import java.util.Calendar;
 
@@ -38,6 +41,16 @@ public class BaseActivity extends AppCompatActivity implements CustomDatePickerD
         Toast.makeText(this, year + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日", Toast.LENGTH_SHORT).show();
     }
 
+    protected WebServiceManager mWebServer= null;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        WebServiceManager.initManager(this);
+        mWebServer = WebServiceManager.getInstance();
+    }
 
+    protected void showToast(String msg){
+        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+    }
 }
