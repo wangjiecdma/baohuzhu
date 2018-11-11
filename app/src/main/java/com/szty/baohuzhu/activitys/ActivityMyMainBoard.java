@@ -24,7 +24,18 @@ public class ActivityMyMainBoard extends BaseActivity {
                 startActivityForResult(intent,100);
             }
         });
+
+        findViewById(R.id.pop_cash).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =  new Intent(ActivityMyMainBoard.this,ActivityManager.class);
+                startActivity(intent);
+
+            }
+        });
     }
+
 
     private void updateUserStates(){
         UserStatus user =  UserStatus.user();

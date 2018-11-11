@@ -24,7 +24,7 @@
             android:id="@+id/bider_info_phonenumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="13731336159"
+            android:text="13564043982"
             android:gravity="center_vertical"
             android:textSize="18sp"
 
@@ -48,6 +48,7 @@
                 android:layout_margin="8dp"
                 android:textSize="14sp"
                 android:textColor="#0889E7"
+                android:id="@+id/sms_code"
                 />
         </LinearLayout>
 
@@ -69,6 +70,7 @@
             android:layout_margin="5dp"
             android:textSize="14sp"
 
+            android:id="@+id/text_sms_code"
             />
         <EditText
             android:layout_width="match_parent"
@@ -80,6 +82,7 @@
             android:padding="8dp"
             android:layout_margin="5dp"
             android:textSize="14sp"
+            android:id="@+id/bankcard"
 
             />
         <EditText
@@ -93,6 +96,7 @@
             android:layout_margin="5dp"
             android:textSize="14sp"
 
+            android:id="@+id/bank_user"
             />
 
 
@@ -104,6 +108,7 @@
             android:padding="8dp"
             android:layout_margin="5dp"
             android:textSize="14sp"
+            android:id="@+id/bank_name"
 
             />
         <EditText
@@ -115,6 +120,7 @@
             android:padding="8dp"
             android:layout_margin="5dp"
             android:textSize="14sp"
+            android:id="@+id/usercard"
 
             />
 
@@ -144,9 +150,10 @@
 
         <Button
             android:layout_width="135dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:text="下一步"
+            android:id="@+id/commit"
             />
     </LinearLayout>
 

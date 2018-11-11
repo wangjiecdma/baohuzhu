@@ -2,21 +2,14 @@ package com.szty.baohuzhu.activitys;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.webapi.WebServiceManager;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class ActivityUserRegister extends BaseActivity implements View.OnClickListener{
 
@@ -25,8 +18,6 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-
-
         findViewById(R.id.registe_user).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,20 +25,15 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                 String phone = textView.getText().toString();
                 textView = findViewById(R.id.smscode);
                 String smscode = textView.getText().toString();
-
                 textView = findViewById(R.id.password);
                 String pwd = textView.getText().toString();
-
-                mWebServer.registerUser(phone, smscode, pwd, new WebServiceManager.HttpCallback() {
+                mWebServer.resetPWD(phone, smscode, pwd, new WebServiceManager.HttpCallback() {
                     @Override
                     public void onResonse(boolean sucess, String body) {
-                        if (sucess){
-                            showToast("注册成功");
-                        }else{
-                            showToast("注册失败");
-                        }
+                        Log.d("httplog","reset pwd :"+body);
                     }
                 });
+
             }
         });
 
@@ -95,7 +81,7 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                                 user.setAdCode(js.getString("adCode"));
                                 user.setTotalMoney(js.getString("totalMoney"));
                                 user.setTotalCrash(js.getString("totalCrash"));
-                                user.setCrashIng(js.getString("carshIng"));
+                                user.setCrashIng(js.getString("crashIng"));
                                 user.setTotalProfit(js.getString("totalProfit"));
 
                                 user.setBalance(js.getString("balance"));
@@ -111,9 +97,16 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                                 user.setLevelName(js.getString("levelName"));
                                 user.setUserNo(js.getString("userNo"));
                                 user.setToken(token);
+                                WebServiceManager.getInstance().setToken(token);
 
+                               checkVersioin();
+                               postPushToken();
+                               getNewMessageCount();
+
+                               getMessageList();
                             }catch (JSONException e){
                                 e.printStackTrace();
+                                Log.d("httplog","response error",e);
                             }
 
                             finish();
@@ -129,6 +122,53 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
         switchToLogin(true);
 
     }
+
+    private void checkVersioin(){
+        WebServiceManager.getInstance().checkVersion(new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                Log.d("www","checkversioin :"+body);
+            }
+        });
+    }
+
+    private void postPushToken(){
+
+        WebServiceManager.getInstance().postPushToken("android_token", new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                Log.d("httplog","post push token :"+body);
+            }
+        });
+    }
+    private void getMessageList(){
+        WebServiceManager.getInstance().getMessageList(0, 1, new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                Log.d("httplog","get message list :"+body);
+
+            }
+        });
+    }
+
+    private void getNewMessageCount(){
+        WebServiceManager.getInstance().getNewMessageCount(new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                Log.d("http_log","new message :"+body);
+            }
+        });
+    }
+    private void createHelp(){
+        WebServiceManager.getInstance().toCreateHelp(new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                Log.d("http_log","create help  :"+body);
+
+            }
+        });
+    }
+
 
     @Override
     public void onClick(View v) {
