@@ -2,11 +2,22 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@android:color/background_light"
     android:paddingLeft="11.3dp"
     android:paddingRight="11.3dp"
+
     >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/box"
+
+        >
+
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,7 +32,9 @@
             android:paddingRight="11.3dp"
             android:text="互助项目1"
             android:textColor="#3c3c3c"
-            android:textSize="32px" />
+            android:textSize="32px"
+
+            />
 
         <TextView
             android:id="@+id/project_name2"
@@ -135,30 +148,61 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="22.3dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="46dp"
+
 
         >
 
-        <Button
-            android:id="@+id/project_btn_help"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button1"
-            android:text="授权帮助"
-            android:textColor="#F89418"
-            android:textSize="38px"
-            android:layout_marginLeft="38dp"
+            android:layout_gravity="center"
             android:layout_alignParentLeft="true"
-            />
-        <Button
-            android:id="@+id/project_btn_bidding"
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button1"
+                android:background="@android:color/transparent"
+                android:id="@+id/project_btn_help"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="授权帮助"
+                android:layout_centerInParent="true"
+                android:textColor="#F9941A"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button2"
-            android:text="我要竞标"
-            android:textColor="#66DAC7"
-            android:textSize="38px"
-            android:layout_marginRight="38dp"
+            android:layout_gravity="center"
             android:layout_alignParentRight="true"
-            />
+
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button2"
+                android:background="@android:color/transparent"
+                android:id="@+id/project_btn_bidding"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我要竞标"
+                android:layout_centerInParent="true"
+                android:textColor="#00CBB2"
+                />
+        </RelativeLayout>
+
     </RelativeLayout>
+</LinearLayout>
 </LinearLayout>

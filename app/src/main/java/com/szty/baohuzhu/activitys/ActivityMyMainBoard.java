@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 
+import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.UserStatus;
 
@@ -29,8 +31,49 @@ public class ActivityMyMainBoard extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent =  new Intent(ActivityMyMainBoard.this,ActivityManager.class);
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"提现");
+
+            }
+        });
+        findViewById(R.id.push_cash).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"充值");
+
+            }
+        });
+        findViewById(R.id.my_project_list).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityMyMainBoard.this,ProjectActivity.class);
                 startActivity(intent);
+            }
+        });
+        findViewById(R.id.mylog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"详情记录");
+
+            }
+        });
+        findViewById(R.id.my_information).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"个人信息");
+
+            }
+        });
+        findViewById(R.id.setting).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"设置");
+
+            }
+        });
+        findViewById(R.id.message).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"消息");
 
             }
         });

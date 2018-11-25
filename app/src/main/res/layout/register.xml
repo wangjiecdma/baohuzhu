@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/timg3"
+    android:background="#EEEEEE"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +37,10 @@
             android:id="@+id/segment_login"
             android:onClick="onClick"
             />
+
+
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +58,7 @@
         android:orientation="vertical"
         android:id="@+id/regist_panel"
         >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
@@ -66,23 +70,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:layout_alignParentLeft="true"
                 android:text="手机号"
+                android:id="@+id/text_phone"
+
+                android:layout_centerVertical="true"
                 />
             <EditText
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="20"
                 android:textSize="15sp"
                 android:hint="请输入手机号码"
                 android:id="@+id/phone_number"
+                android:layout_toRightOf="@id/text_phone"
                 />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="获取验证码"
                 android:id="@+id/btn_smscode"
+                android:layout_alignParentRight="true"
+
                 />
-        </LinearLayout>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,6 +138,7 @@
                 android:inputType="textPassword"
                 android:hint="请输入密码"
                 android:id="@+id/password"
+                android:layout_marginLeft="15dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -138,15 +150,31 @@
             android:gravity="center"
             >
 
-            <Button
-                android:layout_width="match_parent"
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:textSize="16sp"
-                android:textColor="#ffffff"
-                android:text="立即注册"
-                android:id="@+id/registe_user"
-                />
+                android:layout_gravity="center"
+
+                >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/me_next_button"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/registe_user"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="立即注册"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"
+                    />
+            </RelativeLayout>
+
         </LinearLayout>
     </LinearLayout>
 
@@ -166,17 +194,19 @@
             android:gravity="center"
             >
 
-            <ImageView
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/user1"
-                />
+                android:text="用户名"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="20"
                 android:hint="请输入用户名或手机号码"
                 android:id="@+id/phone_number_login"
+                android:paddingLeft="60dp"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -189,11 +219,10 @@
             android:gravity="center"
             >
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/user1"
-                />
+                android:text="密码"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -201,6 +230,9 @@
                 android:inputType="textPassword"
                 android:hint="请输入密码"
                 android:id="@+id/password_login"
+                android:paddingLeft="60dp"
+                android:layout_marginLeft="15dp"
+
 
                 />
         </LinearLayout>
@@ -213,15 +245,31 @@
             android:gravity="center"
             >
 
-            <Button
-                android:layout_width="match_parent"
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:textSize="16sp"
-                android:textColor="#ffffff"
-                android:text="登录"
-                android:id="@+id/login"
-                />
+                android:layout_gravity="center"
+
+                >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/me_next_button"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/login"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登录"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"
+                    />
+            </RelativeLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

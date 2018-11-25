@@ -155,7 +155,7 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
         WebServiceManager.getInstance().getNewMessageCount(new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
-                Log.d("http_log","new message :"+body);
+                Log.d("http_log","addnew message :"+body);
             }
         });
     }

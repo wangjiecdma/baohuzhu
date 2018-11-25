@@ -2,11 +2,12 @@ package com.szty.baohuzhu.adapter;
 
 public class ProjectItem {
 
+    private int ID;
     private int type; // 1 竞标 2 授权
     private String title;//标的标题
     private int totalMoney;//需要总额
     private int month;//标的月份
-    private int interestRate;//失败返回金币利率金币利率
+    private String interestRate;//失败返回金币利率金币利率
     private int needNum;//需要人数
     private String startTime;//开始时间
     private String endTime;//结束时间
@@ -16,6 +17,14 @@ public class ProjectItem {
     private String  helpSelfMoney;//单份 金额
     private int cashMoney;//可提现账户使用金额
     private int notMention;//不可提现账户使用金额
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getID() {
+        return ID;
+    }
 
     public int getBidNum() {
         return bidNum;
@@ -29,7 +38,7 @@ public class ProjectItem {
         return completeNum;
     }
 
-    public int getInterestRate() {
+    public String getInterestRate() {
         return interestRate;
     }
 
@@ -97,7 +106,7 @@ public class ProjectItem {
         this.helpSelfMoney = helpSelfMoney;
     }
 
-    public void setInterestRate(int interestRate) {
+    public void setInterestRate(String interestRate) {
         this.interestRate = interestRate;
     }
 
