@@ -45,8 +45,8 @@ public class ActivityMyMainBoard extends BaseActivity {
         findViewById(R.id.my_project_list).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityMyMainBoard.this,ProjectActivity.class);
-                startActivity(intent);
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"我的项目");
+
             }
         });
         findViewById(R.id.mylog).setOnClickListener(new View.OnClickListener() {

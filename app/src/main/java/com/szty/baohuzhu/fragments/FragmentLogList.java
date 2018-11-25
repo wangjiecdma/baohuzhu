@@ -16,21 +16,19 @@ import com.szty.baohuzhu.webapi.WebServiceManager;
 
 import org.json.JSONObject;
 
-public class FragmentLogList extends Fragment {
+public class FragmentLogList extends FragmentBase {
 
     private ListView mListView ;
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.activity_main,container,false);
 
-        mListView = view.findViewById(R.id.list_help);
-        udpateRecorders();
-        return view;
+    public FragmentLogList(){
+        super();
+        title = "详情记录";
+        layoutId = R.layout.myrecords_detail;
     }
 
-    private void udpateRecorders(){
 
+    @Override
+    protected void onInitData() {
         WebServiceManager.getInstance().getLog(0, 100, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
@@ -47,13 +45,8 @@ public class FragmentLogList extends Fragment {
                 }
             }
         });
-
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ActivityManager activityManager = (ActivityManager) getActivity();
-        activityManager.setTitle("详情记录");
-    }
+
+
 }

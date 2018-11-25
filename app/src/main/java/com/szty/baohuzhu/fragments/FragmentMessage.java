@@ -13,18 +13,17 @@ import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
-public class FragmentMessage extends Fragment {
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.notice,container,false);
-        updateNotice();
+public class FragmentMessage extends FragmentBase {
 
-        return view;
+    public FragmentMessage(){
+        super();
+        title = "消息";
+        layoutId = R.layout.notice;
     }
 
 
-    private void updateNotice(){
+    @Override
+    protected void onInitData() {
         WebServiceManager.getInstance().getMessageList(0, 0, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
@@ -36,10 +35,7 @@ public class FragmentMessage extends Fragment {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ActivityManager activityManager = (ActivityManager) getActivity();
-        activityManager.setTitle("消息");
-    }
+
+
+
 }
