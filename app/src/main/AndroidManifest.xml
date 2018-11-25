@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ProjectActivity"
@@ -24,47 +20,31 @@
             android:name=".activitys.ActivityCreateProject"
             android:label="@string/title_activity_create_project"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activitys.ProjectBidding"
             android:label="@string/title_activity_project_bidding"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activitys.ActivityPersonalInformation"
             android:label="@string/title_activity_personal_information"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activitys.ActivityUserRegister"
             android:label="@string/title_activity_user_register"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".activitys.ActivityMyMainBoard"
-            android:label="@string/title_activity_user_register"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
@@ -75,7 +55,7 @@
         </activity>
         <activity
             android:name=".activitys.ActivityManager"
-            android:label="@string/title_activity_user_register"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
