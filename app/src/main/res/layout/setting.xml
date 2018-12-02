@@ -15,7 +15,7 @@
             android:id="@+id/image1_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mutual_aid1"
+            android:src="@drawable/me_address"
             />
          <TextView
              android:layout_width="match_parent"
@@ -26,22 +26,49 @@
              />
     </RelativeLayout>
     <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    >
+    <ImageView
+        android:id="@+id/image2_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/me_withdraw"
+        />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/image2_view"
+        android:text="提现管理"
+        />
+</RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
         >
-        <ImageView
-            android:id="@+id/image2_view"
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/mutual_aid2"
+            android:src="@drawable/button5"
+            android:background="@android:color/transparent"
+            android:id="@+id/loginout"
             />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/image2_view"
-            android:text="提现管理"
+            android:text="退出登录"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/black"
             />
     </RelativeLayout>
+
+
 </LinearLayout>

@@ -4,21 +4,23 @@
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     >
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="60dp"
-        android:gravity="center"
+
+
+        android:background="@drawable/login_backdrop"
         >
-        <TextView
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="互助宝"
-            android:textSize="20sp"
-            android:padding="40dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/login_logo"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
@@ -161,7 +163,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/me_next_button"
+                    android:src="@drawable/login_button"
                     android:background="@android:color/transparent"
                     android:id="@+id/registe_user"
 
@@ -195,13 +197,15 @@
             >
 
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用户名"/>
+                android:src="@drawable/login_user"
+            />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:maxLength="20"
                 android:hint="请输入用户名或手机号码"
                 android:id="@+id/phone_number_login"
@@ -219,10 +223,11 @@
             android:gravity="center"
             >
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="密码"/>
+                android:src="@drawable/login_lock"
+                />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,7 +261,7 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/me_next_button"
+                    android:src="@drawable/login_button"
                     android:background="@android:color/transparent"
                     android:id="@+id/login"
 
@@ -305,7 +310,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/weichat"
+                android:src="@drawable/icon_wechat"
                 android:clickable="true"
                 />
 

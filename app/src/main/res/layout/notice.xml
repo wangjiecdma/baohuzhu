@@ -7,20 +7,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:id="@+id/help_enter"
         >
-        <ImageView
-            android:id="@+id/help_image"
+
+        <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/mutual_aid1"
-            />
+            android:id="@+id/help_image"
+
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/me_mutua_aid_message"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="45px"
+                android:layout_height="45px"
+                android:layout_marginTop="5px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="1"
+                android:textAlignment="center"
+                android:background="@drawable/textview_background"
+                android:id="@+id/help_message_count"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+
+
+
+
         <TextView
             android:id="@+id/notice_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/help_image"
-            android:text="互助通知"
+            android:text="互助消息"
             />
         <TextView
             android:id="@+id/content_text"
@@ -29,29 +62,68 @@
             android:layout_toRightOf="@id/help_image"
             android:layout_below="@id/notice_text"
             android:layout_marginLeft="20dp"
-            android:text="显示通知内容"
+            android:text="还没有消息"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/help_time"
+            />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/box"
+
+        android:clickable="true"
+        android:id="@+id/mall_enter"
+
+
         >
-        <ImageView
-            android:id="@+id/mall_image"
+
+        <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/store1"
-            />
+            android:id="@+id/mall_image"
+
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/me_store_message"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="45px"
+                android:layout_height="45px"
+                android:layout_marginTop="5px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="1"
+                android:textAlignment="center"
+                android:background="@drawable/textview_background"
+                android:id="@+id/mall_message_count"
+                android:visibility="invisible"
+
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/mall_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/mall_image"
-            android:text="商城通知"
+            android:text="账号信息"
             />
         <TextView
             android:id="@+id/mallcontent_text"
@@ -60,21 +132,58 @@
             android:layout_toRightOf="@id/mall_image"
             android:layout_below="@id/mall_text"
             android:layout_marginLeft="20dp"
-            android:text="显示通知内容"
+            android:text="还没有消息"
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/mall_time"
+            />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:id="@+id/order_enter"
+
         >
-        <ImageView
-            android:id="@+id/order_image"
+
+
+        <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/store1"
-            />
+            android:id="@+id/order_image"
+
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/me_file_message"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="45px"
+                android:layout_height="45px"
+                android:layout_marginTop="5px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="1"
+                android:textAlignment="center"
+                android:background="@drawable/textview_background"
+                android:id="@+id/order_message_count"
+                android:visibility="invisible"
+
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/order_text"
             android:layout_width="wrap_content"
@@ -90,28 +199,65 @@
             android:layout_toRightOf="@id/order_image"
             android:layout_below="@id/order_text"
             android:layout_marginLeft="20dp"
-            android:text="订单显示"
+            android:text="还没有消息"
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/order_time"
+            />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:id="@+id/notice_enter"
+
         >
-        <ImageView
-            android:id="@+id/notice_image"
+
+
+        <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/store1"
-            />
+            android:id="@+id/notice_image"
+
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/me_system_message"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="45px"
+                android:layout_height="45px"
+                android:layout_marginTop="5px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="1"
+                android:textAlignment="center"
+                android:background="@drawable/textview_background"
+                android:id="@+id/notice_message_count"
+                android:visibility="invisible"
+
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/sysnotice_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/notice_image"
-            android:text="系统通知"
+            android:text="系统消息"
             />
         <TextView
             android:id="@+id/noticecontent_text"
@@ -120,8 +266,14 @@
             android:layout_toRightOf="@id/notice_image"
             android:layout_below="@id/sysnotice_text"
             android:layout_marginLeft="20dp"
-            android:text="信息内容"
+            android:text="还没有消息"
             />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/notice_time"
+            />
     </RelativeLayout>
 </LinearLayout>
