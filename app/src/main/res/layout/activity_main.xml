@@ -1,15 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <ListView
+
+   <TabHost
+         android:id="@android:id/tabhost"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_weight="1">
+
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:id="@+id/list_help"
-       >
-   </ListView>
-</RelativeLayout>
+       android:orientation="vertical">
+
+      <!-- 插入选项卡堆叠区，即选项卡内容面板 -->
+      <FrameLayout
+          android:id="@android:id/tabcontent"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1">
+
+      <!-- 静态插入Fragment对象，使用Fragment做为面板 -->
+      <fragment
+          android:id="@+id/content_tab1"
+          android:name="com.szty.baohuzhu.fragments.FragmentEmpty"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+      <fragment
+          android:id="@+id/content_tab2"
+          android:name="com.szty.baohuzhu.fragments.FragmentHuzhu"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+      <fragment
+          android:id="@+id/content_tab3"
+          android:name="com.szty.baohuzhu.fragments.FragmentEmpty"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+      <fragment
+          android:id="@+id/content_tab4"
+          android:name="com.szty.baohuzhu.fragments.FragmentMyMain"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+
+   </FrameLayout>
+
+
+   <TabWidget
+       android:id="@android:id/tabs"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:color/darker_gray"/>
+
+</LinearLayout>
+
+    </TabHost>
+
+
+</LinearLayout>

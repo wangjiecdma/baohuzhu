@@ -25,7 +25,9 @@ public class FragmentBase extends Fragment {
         return view;
     }
 
-
+    protected View findViewById(int id){
+        return getView().findViewById(id);
+    }
     protected void onInitData(){
 
     }
@@ -33,9 +35,10 @@ public class FragmentBase extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        super.onResume();
-        ActivityManager activityManager = (ActivityManager) getActivity();
-        activityManager.setTitle(title);
+        if (getActivity() instanceof ActivityManager) {
+            ActivityManager activityManager = (ActivityManager) getActivity();
+            activityManager.setTitle(title);
+        }
         onInitData();
     }
 }
