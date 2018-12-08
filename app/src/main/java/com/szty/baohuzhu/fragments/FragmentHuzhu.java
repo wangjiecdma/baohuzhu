@@ -1,12 +1,27 @@
 package com.szty.baohuzhu.fragments;
 
 import android.graphics.Color;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.adapter.ProjectAdapter;
+import com.szty.baohuzhu.adapter.ProjectItem;
 import com.szty.baohuzhu.webapi.WebServiceManager;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
     public FragmentHuzhu(){
@@ -26,6 +41,7 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
             @Override
             public void onResonse(boolean sucess, String body) {
 
+                //成功案例列表
             }
         });
 
@@ -47,6 +63,84 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
                 ActivityManager.startFragment(getContext(),"我要创建");
 
+            }
+        });
+
+        initSucessProjectList();
+        initProjectList();
+    }
+
+
+    private void initProjectList(){
+        WebServiceManager.getInstance().getProjectList(0, 10, new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+
+                Log.d("www","onResponse :"+sucess + " value:\n"+body);
+
+                if(sucess) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(body);
+                        JSONArray list =jsonObject.getJSONObject("datas").getJSONObject("page").getJSONArray("datas");
+                        List<ProjectItem> projectList = new LinkedList<>();
+                        for (int i =0;i<list.length();i++){
+                            JSONObject item = list.getJSONObject(i);
+                            ProjectItem  projectItem = new ProjectItem();
+                            projectItem.setID(item.getInt("id"));
+                            projectItem.setType(item.getInt("type"));
+                            projectItem.setTitle(item.getString("title"));
+                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+                            projectItem.setCloseTime(item.getString("closeTime"));
+                            projectItem.setEndTime(item.getString("endTime"));
+                            projectItem.setStartTime(item.getString("startTime"));
+                            projectItem.setNeedNum(item.getInt("needNum"));
+                            projectItem.setInterestRate(item.getString("interestRate"));
+                            projectItem.setBidNum(item.getInt("bidNum"));
+                            projectItem.setCompleteNum(item.getInt("completeNum"));
+                            projectItem.setMonth(item.getInt("timeLimit"));
+                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectList.add(projectItem);
+
+
+                        }
+                        ListView listView = (ListView)findViewById(R.id.huzhu_listview) ;
+                        listView.setAdapter(new ProjectAdapter(projectList,getContext()));
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    Log.d("www","update list error");
+                }
+            }
+        });
+    }
+
+    private void initSucessProjectList(){
+
+        ListView listView = (ListView)findViewById(R.id.sucecss_listview);
+
+        listView.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return 10;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View  view =LayoutInflater.from(getContext()).inflate(R.layout.sucess_project,null);
+
+                return view;
             }
         });
     }

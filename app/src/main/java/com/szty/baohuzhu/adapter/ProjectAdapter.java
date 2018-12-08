@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
+import com.szty.baohuzhu.activitys.ActivityManager;
 
 import org.w3c.dom.Text;
 
@@ -70,7 +71,12 @@ public class ProjectAdapter extends BaseAdapter {
         TextView project_helpcount = project.findViewById(R.id.project_helpcount);
         project_helpcount.setText(item.getHelpSelfMoney());
 
-
+        project.findViewById(R.id.project_btn_help).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(mContext,"我要授权");
+            }
+        });
 
         return project;
     }

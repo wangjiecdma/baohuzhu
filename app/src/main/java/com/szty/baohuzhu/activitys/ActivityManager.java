@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.szty.baohuzhu.R;
+import com.szty.baohuzhu.fragments.FragmentAuth;
 import com.szty.baohuzhu.fragments.FragmentBindCard;
 import com.szty.baohuzhu.fragments.FragmentCreateNew;
 import com.szty.baohuzhu.fragments.FragmentDeposit;
@@ -43,6 +44,7 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("消息",FragmentMessage.class);
         mFragmentMap.put("我的项目",FragmentMyProjects.class);
         mFragmentMap.put("我要创建",FragmentCreateNew.class);
+        mFragmentMap.put("我要授权",FragmentAuth.class);
         //
 
 
