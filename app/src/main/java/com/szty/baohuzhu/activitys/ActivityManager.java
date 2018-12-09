@@ -42,6 +42,8 @@ public class ActivityManager extends BaseActivity  {
 
         mFragmentMap.put("提现",FragmentBindCard.class);
         mFragmentMap.put("充值",FragmentBindCard.class);
+        mFragmentMap.put("提现绑卡",FragmentBindCard.class);
+
         mFragmentMap.put("详情记录",FragmentLogList.class);
         mFragmentMap.put("个人信息",FragmentMyInformation.class);
         mFragmentMap.put("设置",FragmentSetting.class);
