@@ -13,7 +13,7 @@ import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
-public class FragmentMessage extends FragmentBase {
+public class FragmentMessage extends FragmentBase implements View.OnClickListener {
 
     public FragmentMessage(){
         super();
@@ -33,9 +33,16 @@ public class FragmentMessage extends FragmentBase {
                 }
             }
         });
+
+        findViewById(R.id.help_enter).setOnClickListener(this);
+        findViewById(R.id.mall_enter).setOnClickListener(this);
+        findViewById(R.id.notice_enter).setOnClickListener(this);
+
     }
 
+    @Override
+    public void onClick(View v) {
+        ActivityManager.startFragment(getContext(),"账号消息");
 
-
-
+    }
 }

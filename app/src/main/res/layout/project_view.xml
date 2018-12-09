@@ -2,8 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="11.3dp"
-    android:paddingRight="11.3dp"
+
 
     >
 
@@ -19,8 +18,8 @@
 
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         >
@@ -33,6 +32,7 @@
             android:text="互助项目1"
             android:textColor="#3c3c3c"
             android:textSize="32px"
+            android:layout_alignParentLeft="true"
 
             />
 
@@ -43,9 +43,11 @@
             android:background="@drawable/label1"
             android:text="首标"
             android:textColor="#F24B41"
-            android:textSize="32px" />
+            android:textSize="32px"
+            android:layout_alignParentRight="true"
+            />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/project_detail"

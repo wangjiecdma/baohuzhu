@@ -78,7 +78,15 @@ public class ProjectAdapter extends BaseAdapter {
             }
         });
 
-        return project;
+         project.findViewById(R.id.project_btn_bidding).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 ActivityManager.startFragment(mContext,"我要竞标");
+
+             }
+         });
+
+       return project;
     }
 
     @Override

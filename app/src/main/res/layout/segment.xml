@@ -166,6 +166,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/listview_history"
                 android:layout_below="@+id/create_new"
+                android:dividerHeight="0px"
+
                 >
 
 
@@ -183,7 +185,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="8dp"
                 android:layout_alignParentTop="true"
                 android:id="@+id/search_view"
                 android:background="@drawable/box"
@@ -216,6 +218,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/huzhu_listview"
                 android:layout_below="@+id/search_view"
+                android:dividerHeight="0px"
                 >
 
 
@@ -227,6 +230,8 @@
             android:layout_height="match_parent"
             android:id="@+id/sucecss_listview"
             android:layout_below="@+id/search_view"
+            android:dividerHeight="0px"
+
             />
     </FrameLayout>
 
