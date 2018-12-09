@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -68,10 +69,19 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
         initSucessProjectList();
         initProjectList();
+        initMyProjectList();
     }
 
 
     private void initProjectList(){
+        ListView list = (ListView)findViewById(R.id.huzhu_listview);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("www","project item click ");
+                ActivityManager.startFragment(getContext(),"项目详情");
+            }
+        });
         WebServiceManager.getInstance().getProjectList(0, 10, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
@@ -104,6 +114,7 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
                         }
                         ListView listView = (ListView)findViewById(R.id.huzhu_listview) ;
+
                         listView.setAdapter(new ProjectAdapter(projectList,getContext()));
 
                     }catch (Exception e){
@@ -139,6 +150,33 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View  view =LayoutInflater.from(getContext()).inflate(R.layout.sucess_project,null);
+
+                return view;
+            }
+        });
+    }
+
+    private void initMyProjectList(){
+        ListView listView = (ListView)findViewById(R.id.listview_history);
+        listView.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return 5;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View  view =LayoutInflater.from(getContext()).inflate(R.layout.project_view,null);
 
                 return view;
             }

@@ -83,6 +83,8 @@
             android:maxLength="20"
             android:textSize="15dp"
             android:hint="请编辑项目名称，最多20个字"
+            android:lines="1"
+
             />
     </LinearLayout>
 
@@ -110,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请输入总金额,不超过200000"
+            android:lines="1"
 
             >
 
@@ -137,6 +140,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请选择期限"
+            android:lines="1"
+
             >
 
         </EditText>
@@ -164,6 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请输入人数，不超过10人"
+            android:lines="1"
 
             >
         </EditText>
@@ -190,6 +196,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="请选择三个月以内的时间"
+            android:lines="1"
+
             >
         </EditText>
     </LinearLayout>
@@ -215,6 +223,8 @@
             android:layout_weight="1"
             android:gravity="right"
             android:hint="0"
+            android:lines="1"
+
             />
     </LinearLayout>
 
@@ -238,6 +248,8 @@
             android:gravity="right"
             android:textColor="#FF9900"
             android:text="1000"
+            android:lines="1"
+
             />
     </LinearLayout>
     <LinearLayout
@@ -261,6 +273,8 @@
             android:gravity="right"
             android:text="500"
             android:hint="点击可以修改"
+            android:lines="1"
+
 
             />
     </LinearLayout>
@@ -307,6 +321,8 @@
             android:layout_weight="1"
             android:gravity="right"
             android:text="500"
+            android:lines="1"
+
             />
     </LinearLayout>
 
