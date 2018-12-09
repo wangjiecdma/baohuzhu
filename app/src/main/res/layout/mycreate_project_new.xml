@@ -4,12 +4,18 @@
     android:layout_height="match_parent">
 
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
 
+        >
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +30,7 @@
             android:text="提供标"
             />
     </LinearLayout>
+    </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,12 +43,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提供标：提供帮助给别人，最大化自己的利益。"
+            android:textSize="16px"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:text="需求标：需求别人的帮助，需要付出利息，同时自己提供种子资金。"
+            android:textSize="16px"
+
             />
 
     </LinearLayout>
@@ -51,6 +61,12 @@
         android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+
+
         >
 
         <TextView
@@ -72,10 +88,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         >
 
         <TextView
@@ -84,21 +104,26 @@
             android:gravity="center"
             android:text="互助总额 "
             />
-        <Spinner
+        <EditText
             android:id="@+id/mycreate_newproject_amount_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="请输入总金额,不超过200000"
+
             >
 
-        </Spinner>
+        </EditText>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
-        >
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,57 +131,15 @@
             android:gravity="center"
             android:text="互助期限 "
             />
-        <Spinner
+        <EditText
             android:id="@+id/mycreate_newproject_date_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="请选择期限"
             >
 
-        </Spinner>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:paddingLeft="11.3dp"
-        android:paddingRight="11.3dp"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="需要人数 "
-            />
-        <Spinner
-            android:id="@+id/mycreate_newproject_PopTotal_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
-        </Spinner>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:paddingLeft="11.3dp"
-        android:paddingRight="11.3dp"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="项目开始 "
-            />
-        <Spinner
-            android:id="@+id/mycreate_newproject_start_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            >
-        </Spinner>
+        </EditText>
     </LinearLayout>
 
     <LinearLayout
@@ -164,7 +147,62 @@
         android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
-        >
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="需要人数 "
+            />
+        <EditText
+            android:id="@+id/mycreate_newproject_PopTotal_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请输入人数，不超过10人"
+
+            >
+        </EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="11.3dp"
+        android:paddingRight="11.3dp"
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="项目开始 "
+            />
+        <EditText
+            android:id="@+id/mycreate_newproject_start_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请选择三个月以内的时间"
+            >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="11.3dp"
+        android:paddingRight="11.3dp"
+        android:background="@drawable/box1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -182,9 +220,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
+        android:layout_marginTop="5dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -203,28 +242,34 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
-        >
+        android:background="@drawable/box"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+               >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="授  权 "
             />
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
             android:text="500"
+            android:hint="点击可以修改"
+
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
+        android:layout_marginTop="5dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -244,16 +289,19 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
-        >
+        android:background="@drawable/box1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="授  权 "
             />
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -261,43 +309,27 @@
             android:text="500"
             />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:paddingLeft="11.3dp"
-        android:paddingRight="11.3dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="本项目离竞标结束日期还有："
-            />
-        <TextView
-            android:id="@+id/mycreate_newproject_duedate_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:textColor="#00CED1"
-            android:textSize="20sp"
-            android:text="30天"
-            />
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
         android:gravity="center_horizontal"
+
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
         >
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button4"
+            android:background="@drawable/me_next_button"
             android:text="下一步"
             android:textSize="18dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+
             />
 
     </LinearLayout>

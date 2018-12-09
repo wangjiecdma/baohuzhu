@@ -40,8 +40,8 @@ public class FragmentBindCard extends Fragment implements View.OnClickListener{
             });
         }else if(v.getId() == R.id.commit){
             EditText smscode = getView().findViewById(R.id.text_sms_code);
-            EditText bankCard = getView().findViewById(R.id.bankcard);
-            EditText bankUser = getView().findViewById(R.id.bank_user);
+            EditText bankCard = getView().findViewById(R.id.bank_name);
+            EditText bankUser = getView().findViewById(R.id.card_number);
             EditText bankName = getView().findViewById(R.id.bank_name);
             EditText userCard =getView().findViewById(R.id.usercard);
 

@@ -3,6 +3,7 @@ package com.szty.baohuzhu.activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
@@ -75,6 +76,24 @@ public class ActivityMyMainBoard extends BaseActivity {
             public void onClick(View v) {
                 ActivityManager.startFragment(ActivityMyMainBoard.this,"消息");
 
+            }
+        });
+
+        findViewById(R.id.btn_account).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("www","zhang hu xiangqing ");
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"账户详情");
+
+            }
+        });
+
+        findViewById(R.id.btn_account2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("www","zhang hu xiangqing ");
+
+                ActivityManager.startFragment(ActivityMyMainBoard.this,"账户详情");
             }
         });
     }

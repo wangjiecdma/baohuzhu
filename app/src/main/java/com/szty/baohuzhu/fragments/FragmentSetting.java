@@ -18,6 +18,12 @@ public class FragmentSetting extends Fragment {
         View view= inflater.inflate(R.layout.setting,container,false);
 
 
+        view.findViewById(R.id.return_cach).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityManager.startFragment(getContext(),"提现管理");
+            }
+        });
         return view;
     }
 
@@ -27,5 +33,7 @@ public class FragmentSetting extends Fragment {
         super.onResume();
         ActivityManager activityManager = (ActivityManager) getActivity();
         activityManager.setTitle("设置");
+
     }
+
 }

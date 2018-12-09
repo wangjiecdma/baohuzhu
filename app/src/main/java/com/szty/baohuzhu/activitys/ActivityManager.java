@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.szty.baohuzhu.R;
+import com.szty.baohuzhu.fragments.FragmentAccountDetail;
 import com.szty.baohuzhu.fragments.FragmentAuth;
 import com.szty.baohuzhu.fragments.FragmentAuth2;
 import com.szty.baohuzhu.fragments.FragmentBindCard;
@@ -20,6 +21,7 @@ import com.szty.baohuzhu.fragments.FragmentMessage;
 import com.szty.baohuzhu.fragments.FragmentMessageList;
 import com.szty.baohuzhu.fragments.FragmentMyInformation;
 import com.szty.baohuzhu.fragments.FragmentMyProjects;
+import com.szty.baohuzhu.fragments.FragmentReturnCach;
 import com.szty.baohuzhu.fragments.FragmentSetting;
 
 import java.util.HashMap;
@@ -50,6 +52,9 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("我要竞标",FragmentAuth2.class);
 
         mFragmentMap.put("账号消息",FragmentMessageList.class);
+        mFragmentMap.put("提现管理",FragmentReturnCach.class);
+        mFragmentMap.put("账户详情",FragmentAccountDetail.class);
+
         //
 
 

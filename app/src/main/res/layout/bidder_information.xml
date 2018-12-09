@@ -3,39 +3,49 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F9FB"
+    android:padding="5dp"
     >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
+        android:layout_marginTop="15dp"
+
         >
 
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-            android:text="手机号码："
-            android:gravity="center_vertical"
-            />
-        <TextView
-            android:id="@+id/bider_info_phonenumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="13564043982"
-            android:gravity="center_vertical"
-            android:textSize="18sp"
+           android:layout_centerVertical="true"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机号码："
+                android:gravity="center_vertical"
+                />
+            <TextView
+                android:id="@+id/bider_info_phonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13564043982"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
 
 
-            />
+                />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="8dp"
+            android:background="@drawable/box"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             >
 
             <TextView
@@ -52,74 +62,138 @@
                 />
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="10dp"
         >
-        <EditText
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:hint="请输入验证码"
-            android:maxLength="6"
-            android:inputType="text"
-            android:padding="8dp"
-            android:layout_margin="5dp"
-            android:textSize="14sp"
-
-            android:id="@+id/text_sms_code"
+            android:text="验证码:"
+            android:layout_gravity="center_vertical"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入提现银行卡号"
+            android:gravity="center_vertical"
+            android:maxLength="6"
+            android:inputType="text"
+            android:padding="8dp"
+            android:layout_margin="5dp"
+            android:textSize="10sp"
+            android:background="@drawable/box"
+            android:id="@+id/text_sms_code"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓    名:"
+            android:layout_gravity="center_vertical"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
             android:maxLength="19"
             android:singleLine="true"
             android:inputType="number"
             android:padding="8dp"
             android:layout_margin="5dp"
-            android:textSize="14sp"
-            android:id="@+id/bankcard"
+            android:textSize="10sp"
+            android:background="@drawable/box"
+            android:id="@+id/name"
 
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卡    号:"
+            android:layout_gravity="center_vertical"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入提现银行卡姓名"
+
             android:maxLength="12"
             android:singleLine="true"
             android:inputType="text"
             android:padding="8dp"
             android:layout_margin="5dp"
-            android:textSize="14sp"
-
-            android:id="@+id/bank_user"
+            android:textSize="10sp"
+            android:background="@drawable/box"
+            android:id="@+id/card_number"
             />
 
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开户行:"
+            android:layout_gravity="center_vertical"
+            />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入提现银行卡开户支行名称"
+
             android:inputType="text"
             android:padding="8dp"
             android:layout_margin="5dp"
-            android:textSize="14sp"
+            android:textSize="10sp"
+            android:background="@drawable/box"
             android:id="@+id/bank_name"
 
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证:"
+            android:layout_gravity="center_vertical"
+            />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入身份证号（必须跟银行卡号同名）"
+
             android:inputType="text"
             android:maxLength="18"
             android:padding="8dp"
             android:layout_margin="5dp"
-            android:textSize="14sp"
+            android:textSize="10sp"
+            android:background="@drawable/box"
             android:id="@+id/usercard"
 
             />
@@ -152,8 +226,9 @@
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:text="下一步"
+            android:text="确认"
             android:id="@+id/commit"
+            android:background="@drawable/me_next_button"
             />
     </LinearLayout>
 
