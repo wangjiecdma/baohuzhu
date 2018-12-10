@@ -22,6 +22,7 @@ import com.szty.baohuzhu.fragments.FragmentMessageList;
 import com.szty.baohuzhu.fragments.FragmentMyInformation;
 import com.szty.baohuzhu.fragments.FragmentMyProjects;
 import com.szty.baohuzhu.fragments.FragmentProjectDetail;
+import com.szty.baohuzhu.fragments.FragmentProjectDetail2;
 import com.szty.baohuzhu.fragments.FragmentReturnCach;
 import com.szty.baohuzhu.fragments.FragmentSetting;
 
@@ -59,6 +60,8 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("账户详情",FragmentAccountDetail.class);
 
         mFragmentMap.put("项目详情",FragmentProjectDetail.class);
+        mFragmentMap.put("项目详情2",FragmentProjectDetail2.class);
+
         //
 
 
