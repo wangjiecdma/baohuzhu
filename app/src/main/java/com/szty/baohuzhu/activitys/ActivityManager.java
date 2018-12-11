@@ -121,6 +121,13 @@ public class ActivityManager extends BaseActivity  {
         context.startActivity(intent);
     }
 
+    public static void startFragment(Context context,String name, HashMap mapParam){
+        Intent intent = new Intent(context,ActivityManager.class);
+        intent.putExtra("name",name);
+
+        intent.putExtra("userParam", mapParam);
+        context.startActivity(intent);
+    }
 
 
 }

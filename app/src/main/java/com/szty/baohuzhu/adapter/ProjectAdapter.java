@@ -15,6 +15,7 @@ import com.szty.baohuzhu.activitys.ActivityManager;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ProjectAdapter extends BaseAdapter {
@@ -86,7 +87,31 @@ public class ProjectAdapter extends BaseAdapter {
              }
          });
 
+         project.findViewById(R.id.project_listItem).setOnClickListener(new ClickListener(item));
+
        return project;
+    }
+
+    private class ClickListener implements View.OnClickListener {
+        ProjectItem mItem;
+        public ClickListener(ProjectItem item) {
+            mItem=item;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.d("www","OnClickListener\n");
+            HashMap mapParam = new HashMap();
+            mapParam.put("projectId",mItem.getID());
+            if (mItem.getType() ==1){
+                //首标详情
+                ActivityManager.startFragment(mContext,"项目详情",mapParam);
+            }else{
+                //续标详情
+                ActivityManager.startFragment(mContext,"项目详情2",mapParam);
+            }
+
+        }
     }
 
     @Override
