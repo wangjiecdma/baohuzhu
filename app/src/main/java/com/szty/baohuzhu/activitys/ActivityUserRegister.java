@@ -71,6 +71,7 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                             showToast("登录成功");
 
 
+                            Log.d("httplog"," loging result :"+body);
                             try {
                                 JSONObject jsonObject = new JSONObject(body);
                                 JSONObject js =  jsonObject.getJSONObject("datas").getJSONObject("user");

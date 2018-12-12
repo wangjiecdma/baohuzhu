@@ -15,7 +15,6 @@ import com.szty.baohuzhu.fragments.FragmentAuth;
 import com.szty.baohuzhu.fragments.FragmentAuth2;
 import com.szty.baohuzhu.fragments.FragmentBindCard;
 import com.szty.baohuzhu.fragments.FragmentCreateNew;
-import com.szty.baohuzhu.fragments.FragmentDeposit;
 import com.szty.baohuzhu.fragments.FragmentLogList;
 import com.szty.baohuzhu.fragments.FragmentMessage;
 import com.szty.baohuzhu.fragments.FragmentMessageList;

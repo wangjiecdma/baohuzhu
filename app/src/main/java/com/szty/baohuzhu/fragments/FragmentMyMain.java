@@ -1,12 +1,15 @@
 package com.szty.baohuzhu.fragments;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.activitys.ActivityMyMainBoard;
 import com.szty.baohuzhu.activitys.ActivityUserRegister;
+import com.szty.baohuzhu.adapter.UserStatus;
 
 public class FragmentMyMain extends FragmentBase {
 
@@ -75,5 +78,32 @@ public class FragmentMyMain extends FragmentBase {
                 ActivityManager.startFragment(getContext(),"消息");
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("www","onActivityResult ");
+        UserStatus status =  UserStatus.user();
+        if (status.getMobile() !=null){
+            Log.d("www","set text for user ");
+            TextView textView = (TextView)findViewById(R.id.login_regist);
+            textView.setText(status.getMobile());
+
+            TextView userType = (TextView) findViewById(R.id.user_type);
+            userType.setVisibility(View.VISIBLE);
+            userType.setText(status.getLevelName());
+
+        }
+
+        Log.d("www","fragment ");
     }
 }

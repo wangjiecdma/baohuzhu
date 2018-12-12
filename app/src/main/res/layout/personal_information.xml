@@ -16,6 +16,9 @@
         android:padding="5dp"
 
         android:background="@drawable/box"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/change_user_image"
         >
         <TextView
             android:layout_width="wrap_content"

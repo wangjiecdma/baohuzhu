@@ -43,6 +43,7 @@
                     android:text="金牌会员"
                     android:textColor="@android:color/white"
                     android:visibility="invisible"
+                    android:id="@+id/user_type"
                     />
 
 
