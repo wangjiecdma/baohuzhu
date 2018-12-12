@@ -1,6 +1,9 @@
 package com.szty.baohuzhu.fragments;
 
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +28,27 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
+
+    ListView listView_history ;
+
+
     public FragmentHuzhu(){
         super();
         layoutId= R.layout.segment;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //return super.onCreateView(inflater, container, savedInstanceState);
+
+        View project = inflater.inflate(R.layout.segment, container, false);
+
+        listView_history = (ListView)project.findViewById(R.id.listview_history);
+
+
+        return   project;
+
     }
 
     @Override
@@ -74,14 +95,14 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
 
     private void initProjectList(){
-        ListView list = (ListView)findViewById(R.id.huzhu_listview);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("www","project item click ");
-                ActivityManager.startFragment(getContext(),"项目详情");
-            }
-        });
+//        ListView list = (ListView)findViewById(R.id.huzhu_listview);
+//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Log.d("www","project item click ");
+//                ActivityManager.startFragment(getContext(),"项目详情");
+//            }
+//        });
         WebServiceManager.getInstance().getProjectList(0, 10, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
@@ -131,56 +152,146 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
         ListView listView = (ListView)findViewById(R.id.sucecss_listview);
 
-        listView.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return 10;
-            }
 
+        WebServiceManager.getInstance().getSucessList(0, 10, new WebServiceManager.HttpCallback() {
             @Override
-            public Object getItem(int position) {
-                return null;
-            }
+            public void onResonse(boolean sucess, String body) {
 
-            @Override
-            public long getItemId(int position) {
-                return position;
-            }
+                Log.d("www","onResponse :"+sucess + " value:\n"+body);
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View  view =LayoutInflater.from(getContext()).inflate(R.layout.sucess_project,null);
+                if(sucess) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(body);
+                        JSONArray list =jsonObject.getJSONObject("datas").getJSONObject("page").getJSONArray("datas");
+                        List<ProjectItem> projectList = new LinkedList<>();
+                        for (int i =0;i<list.length();i++){
+                            JSONObject item = list.getJSONObject(i);
+                            ProjectItem  projectItem = new ProjectItem();
+                            projectItem.setID(item.getInt("id"));
+                            projectItem.setType(item.getInt("type"));
+                            projectItem.setTitle(item.getString("title"));
+                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+                            projectItem.setCloseTime(item.getString("closeTime"));
+                            projectItem.setEndTime(item.getString("endTime"));
+                            projectItem.setStartTime(item.getString("startTime"));
+                            projectItem.setNeedNum(item.getInt("needNum"));
+                            projectItem.setInterestRate(item.getString("interestRate"));
+                            projectItem.setBidNum(item.getInt("bidNum"));
+                            projectItem.setCompleteNum(item.getInt("completeNum"));
+                            projectItem.setMonth(item.getInt("timeLimit"));
+                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectList.add(projectItem);
 
-                return view;
+
+                        }
+                        ListView listView = (ListView)findViewById(R.id.sucecss_listview) ;
+
+                        listView.setAdapter(new ProjectAdapter(projectList,getContext()));
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    Log.d("www","update list error");
+                }
             }
         });
+
+//        listView.setAdapter(new BaseAdapter() {
+//            @Override
+//            public int getCount() {
+//                return 10;
+//            }
+//
+//            @Override
+//            public Object getItem(int position) {
+//                return null;
+//            }
+//
+//            @Override
+//            public long getItemId(int position) {
+//                return position;
+//            }
+//
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                View  view =LayoutInflater.from(getContext()).inflate(R.layout.sucess_project,null);
+//
+//                return view;
+//            }
+//        });
     }
 
     private void initMyProjectList(){
-        ListView listView = (ListView)findViewById(R.id.listview_history);
-        listView.setAdapter(new BaseAdapter() {
-            @Override
-            public int getCount() {
-                return 5;
-            }
+//        ListView listView = (ListView)findViewById(R.id.listview_history);
 
+        WebServiceManager.getInstance().myHelpList(0, 10, new WebServiceManager.HttpCallback() {
             @Override
-            public Object getItem(int position) {
-                return null;
-            }
+            public void onResonse(boolean sucess, String body) {
 
-            @Override
-            public long getItemId(int position) {
-                return position;
-            }
+                Log.d("www","onResponse :"+sucess + " value:\n"+body);
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View  view =LayoutInflater.from(getContext()).inflate(R.layout.project_view,null);
+                if(sucess) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(body);
+                        JSONArray list =jsonObject.getJSONObject("datas").getJSONObject("page").getJSONArray("datas");
+                        List<ProjectItem> projectList = new LinkedList<>();
+                        for (int i =0;i<list.length();i++){
+                            JSONObject item = list.getJSONObject(i);
+                            ProjectItem  projectItem = new ProjectItem();
+                            projectItem.setID(item.getInt("id"));
+                            projectItem.setType(item.getInt("type"));
+                            projectItem.setTitle(item.getString("title"));
+                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+                            projectItem.setCloseTime(item.getString("closeTime"));
+                            projectItem.setEndTime(item.getString("endTime"));
+                            projectItem.setStartTime(item.getString("startTime"));
+                            projectItem.setNeedNum(item.getInt("needNum"));
+                            projectItem.setInterestRate(item.getString("interestRate"));
+                            projectItem.setBidNum(item.getInt("bidNum"));
+                            projectItem.setCompleteNum(item.getInt("completeNum"));
+                            projectItem.setMonth(item.getInt("timeLimit"));
+                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectList.add(projectItem);
 
-                return view;
+
+                        }
+//                        ListView listView = (ListView)findViewById(R.id.sucecss_listview) ;
+
+                        listView_history.setAdapter(new ProjectAdapter(projectList,getContext()));
+                        listView_history.invalidate();
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    Log.d("www","update list error");
+                }
             }
         });
+//        listView.setAdapter(new BaseAdapter() {
+//            @Override
+//            public int getCount() {
+//                return 5;
+//            }
+//
+//            @Override
+//            public Object getItem(int position) {
+//                return null;
+//            }
+//
+//            @Override
+//            public long getItemId(int position) {
+//                return position;
+//            }
+//
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                View  view =LayoutInflater.from(getContext()).inflate(R.layout.project_view,null);
+//
+//                return view;
+//            }
+//        });
     }
 
     @Override
