@@ -9,12 +9,14 @@
     >
 
     <RelativeLayout
+        android:id="@+id/sucess_listItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:background="@drawable/card"
         android:layout_marginBottom="5dp"
-        >
+        android:background="@drawable/card"
+        android:clickable="true"
+        android:padding="2dp">
+
         <TextView
             android:id="@+id/sucess_help_text"
             android:layout_width="wrap_content"
@@ -22,63 +24,52 @@
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="互助项目1"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/sucess_firstsid_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="15dp"
             android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="首标"
             android:textColor="#FF3300"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/sucess_rate_text"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_help_text"
+            android:gravity="center"
             android:text="20"
-            android:textSize="20sp"
             android:textColor="#FF3300"
-            android:gravity="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_below="@id/sucess_help_text"
-            android:layout_toRightOf="@id/sucess_rate_text"
-            android:text="%"
-            android:textSize="15sp"
-            android:textColor="#FF3300"
-            android:gravity="center"
-            />
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/sucess_total_text"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_help_text"
             android:layout_marginLeft="105dp"
-            android:text="互助总额 "
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="互助总额 "
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
         <TextView
+            android:id="@+id/project_total"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_help_text"
             android:layout_toRightOf="@id/sucess_total_text"
-            android:text="1000元"
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="1000元"
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/sucess_date_edit"
             android:layout_width="wrap_content"
@@ -86,53 +77,51 @@
             android:layout_below="@id/sucess_help_text"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
-            android:text="2018.10.20"
-            android:textSize="17sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="2018.10.20"
+            android:textColor="#999999"
+            android:textSize="17sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_rate_text"
-            android:text="折费后年利率"
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="折费后年利率"
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/sucess_service_text"
             android:layout_width="wrap_content"
-            android:layout_below="@id/sucess_total_text"
             android:layout_height="50dp"
+            android:layout_below="@id/sucess_total_text"
             android:layout_marginLeft="105dp"
-            android:text="服务期限 "
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="服务期限 "
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
         <TextView
+            android:id="@+id/project_duration"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_total_text"
             android:layout_toRightOf="@id/sucess_service_text"
-            android:text="1个月"
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="1个月"
+            android:textColor="#999999"
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_below="@id/sucess_date_edit"
             android:layout_alignLeft="@id/sucess_date_edit"
-            android:text="竞标成功时间"
-            android:textSize="15sp"
-            android:textColor="#999999"
             android:gravity="center"
-            />
+            android:text="竞标成功时间"
+            android:textColor="#999999"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

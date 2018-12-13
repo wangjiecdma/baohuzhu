@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,10 @@ public class FragmentProjectDetail extends FragmentBase {
     TextView takePartin;
     TextView bidNum;
     TextView duration;
+    TextView closeTime;
+    TextView status;
+    TextView projectWarning;
+
 
     public FragmentProjectDetail(){
         super();
@@ -81,6 +86,16 @@ public class FragmentProjectDetail extends FragmentBase {
 //        String str = String.format("%s~%s", projectItem.getStartTime(), projectItem.getEndTime());
         duration = projectDetail.findViewById(R.id.project_datetime_edit);
 
+
+        closeTime = projectDetail.findViewById(R.id.project_close_time);
+
+        status = projectDetail.findViewById(R.id.project_status_text_value);
+
+        projectWarning = projectDetail.findViewById(R.id.project_warning);
+
+
+
+
     return projectDetail;
 
     }
@@ -98,21 +113,27 @@ public class FragmentProjectDetail extends FragmentBase {
         totalCount.setText(Integer.toString(projectItem.getTotalMoney()));
 
 
-        dur.setText(Integer.toString(projectItem.getMonth()));
+        dur.setText(projectItem.getDurationString());
 
 
         project_rate.setText(projectItem.getInterestRate());
 
-        needPerson.setText(Integer.toString(projectItem.getNeedNum()));
+        needPerson.setText(String.format("%d人", projectItem.getNeedNum()));
 
-        takePartin.setText(Integer.toString(projectItem.getCompleteNum()));
+        takePartin.setText(String.format("%d人", projectItem.getCompleteNum()));
 
-        bidNum.setText(Integer.toString(projectItem.getBidNum()));
+        bidNum.setText(String.format("%d人", projectItem.getBidNum()));
 
 
         String str = String.format("%s~%s", projectItem.getStartTime(), projectItem.getEndTime());
 
         duration.setText(str);
+
+        closeTime.setText(projectItem.getCloseTime());
+
+        status.setText(projectItem.getStatusStr());
+
+        projectWarning.setText(Html.fromHtml(projectItem.getProjectWarningStrWithHtml()));
 
     }
 
@@ -138,19 +159,20 @@ public class FragmentProjectDetail extends FragmentBase {
                         //JSONObject accountInfo =jsonObject.getJSONObject("datas").getJSONObject("account");
 
                         ProjectItem  projectItem = new ProjectItem();
-                        projectItem.setID(projectInfo.getInt("id"));
-                        projectItem.setType(projectInfo.getInt("type"));
-                        projectItem.setTitle(projectInfo.getString("title"));
-                        projectItem.setTotalMoney(projectInfo.getInt("totalMoney"));
-                        projectItem.setCloseTime(projectInfo.getString("closeTime"));
-                        projectItem.setEndTime(projectInfo.getString("endTime"));
-                        projectItem.setStartTime(projectInfo.getString("startTime"));
-                        projectItem.setNeedNum(projectInfo.getInt("needNum"));
-                        projectItem.setInterestRate(projectInfo.getString("interestRate"));
-                        projectItem.setBidNum(projectInfo.getInt("bidNum"));
-                        projectItem.setCompleteNum(projectInfo.getInt("completeNum"));
-                        projectItem.setMonth(projectInfo.getInt("timeLimit"));
-                        projectItem.setHelpSelfMoney(projectInfo.getString("price"));
+                        projectItem.initFromJson(projectInfo);
+//                        projectItem.setID(projectInfo.getInt("id"));
+//                        projectItem.setType(projectInfo.getInt("type"));
+//                        projectItem.setTitle(projectInfo.getString("title"));
+//                        projectItem.setTotalMoney(projectInfo.getInt("totalMoney"));
+//                        projectItem.setCloseTime(projectInfo.getString("closeTime"));
+//                        projectItem.setEndTime(projectInfo.getString("endTime"));
+//                        projectItem.setStartTime(projectInfo.getString("startTime"));
+//                        projectItem.setNeedNum(projectInfo.getInt("needNum"));
+//                        projectItem.setInterestRate(projectInfo.getString("interestRate"));
+//                        projectItem.setBidNum(projectInfo.getInt("bidNum"));
+//                        projectItem.setCompleteNum(projectInfo.getInt("completeNum"));
+//                        projectItem.setMonth(projectInfo.getInt("timeLimit"));
+//                        projectItem.setHelpSelfMoney(projectInfo.getString("price"));
 
 
 //                        LinearLayout projectDetail =  (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.project_detail,null);

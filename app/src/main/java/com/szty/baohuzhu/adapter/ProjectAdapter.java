@@ -1,17 +1,22 @@
 package com.szty.baohuzhu.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ImageButton;
 
 import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.activitys.ActivityUserRegister;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 
 import org.w3c.dom.Text;
 
@@ -58,10 +63,11 @@ public class ProjectAdapter extends BaseAdapter {
         }else{
             type.setText("续标");
         }
-        String str = String.format("%d个月期限 | %d人 | 还差%d人 | %d人竞标中",item.getMonth(),item.getNeedNum(),item.getCompleteNum(),item.getNeedNum()-item.getCompleteNum(),item.getBidNum());
+        //String str = String.format("%d个月期限 | %d人 | 还差%d人 | %d人竞标中",item.getMonth(),item.getNeedNum(),item.getCompleteNum(),item.getNeedNum()-item.getCompleteNum(),item.getBidNum());
 
         TextView project_detail = project.findViewById(R.id.project_detail);
-        project_detail.setText(str);
+//        project_detail.setText(str);
+        project_detail.setText(item.getProjectDetailStr());
 
         TextView total = project.findViewById(R.id.project_total);
         total.setText(Integer.toString(item.getTotalMoney()));
@@ -72,20 +78,59 @@ public class ProjectAdapter extends BaseAdapter {
         TextView project_helpcount = project.findViewById(R.id.project_helpcount);
         project_helpcount.setText(item.getHelpSelfMoney());
 
+        TextView text_in_authbutton = project.findViewById(R.id.text_in_authbutton);
+        text_in_authbutton.setText(item.getAuthStr());
+
+        TextView text_in_bidbutton = project.findViewById(R.id.text_in_bidbutton);
+        text_in_bidbutton.setText(item.getStatusStr());
+
         project.findViewById(R.id.project_btn_help).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityManager.startFragment(mContext,"我要授权");
+                if(PreferenceUtils.isLogin()) {
+                    ActivityManager.startFragment(mContext, "我要授权");
+                }
+                else{
+                    Intent intent = new Intent(mContext, ActivityUserRegister.class);
+                    mContext.startActivity (intent);
+                }
             }
         });
 
          project.findViewById(R.id.project_btn_bidding).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 ActivityManager.startFragment(mContext,"我要竞标");
+                 if(PreferenceUtils.isLogin()) {
+                    ActivityManager.startFragment(mContext,"我要竞标");
+                 }
+                 else{
+                     Intent intent = new Intent(mContext, ActivityUserRegister.class);
+                     mContext.startActivity (intent);
+                 }
 
              }
          });
+
+         if(item.isAuthButtonEnabled() != true){
+             project.findViewById(R.id.project_btn_help).setClickable(false);
+             project.findViewById(R.id.project_btn_help).setBackgroundResource(R.drawable.button4);
+             project.findViewById(R.id.project_btn_help).setEnabled(false);
+
+         }
+         else{
+             project.findViewById(R.id.project_btn_help).setBackgroundResource(R.drawable.button1);
+         }
+
+         if(item.isBidButtonEnabled() != true){
+             project.findViewById(R.id.project_btn_bidding).setClickable(false);
+             project.findViewById(R.id.project_btn_bidding).setBackgroundResource(R.drawable.button4);
+
+         }
+         else{
+             project.findViewById(R.id.project_btn_bidding).setBackgroundResource(R.drawable.button2);
+         }
+
+
 
          project.findViewById(R.id.project_listItem).setOnClickListener(new ClickListener(item));
 

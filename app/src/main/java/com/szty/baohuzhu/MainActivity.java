@@ -4,13 +4,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.szty.baohuzhu.adapter.UserStatus;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        PreferenceUtils.init(this);
+
         WebServiceManager.initManager(this);
+
+        this.autoLogin();
+
         //startActivity(new Intent(this,ProjectActivity.class));
 
         final TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
@@ -80,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 selectTabIndex(index,true);
             }
         });
-        tabHost.setCurrentTab(3);
+        tabHost.setCurrentTab(1);
     }
     private View createTabCustomView(int index){
         View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.tabcustomview, null);
@@ -145,5 +156,64 @@ public class MainActivity extends AppCompatActivity {
             TextView text = view.findViewById(R.id.tab_txt);
             text.setTextColor(Color.GRAY);
         }
+    }
+
+    private void autoLogin(){
+
+        if(PreferenceUtils.isAutoLogin() == false){
+            PreferenceUtils.setLogin(false);
+            return ;
+        }
+
+
+        String phone = PreferenceUtils.getUserName();
+        String pwd = PreferenceUtils.getpassword();
+        WebServiceManager.getInstance().userLogin(phone, pwd, new WebServiceManager.HttpCallback() {
+            @Override
+            public void onResonse(boolean sucess, String body) {
+                if (sucess) {
+                    //showToast("登录成功");
+
+
+                    Log.d("httplog", " loging result :" + body);
+                    try {
+                        JSONObject jsonObject = new JSONObject(body);
+                        JSONObject js = jsonObject.getJSONObject("datas").getJSONObject("user");
+                        String token = jsonObject.getJSONObject("datas").getString("token");
+                        UserStatus user = UserStatus.user();
+                        user.setUid(js.getInt("uid"));
+                        user.setNickName(js.getString("nickName"));
+                        user.setAdCode(js.getString("adCode"));
+                        user.setTotalMoney(js.getString("totalMoney"));
+                        user.setTotalCrash(js.getString("totalCrash"));
+                        user.setCrashIng(js.getString("crashIng"));
+                        user.setTotalProfit(js.getString("totalProfit"));
+
+                        user.setBalance(js.getString("balance"));
+                        user.setBankCard(js.getString("bankCard"));
+                        user.setBankName(js.getString("bankName"));
+                        user.setIco(js.getString("ico"));
+                        user.setSex(js.getString("sex"));
+                        user.setBirthday(js.getString("birthday"));
+                        user.setBidMoney(js.getString("bidMoney"));
+                        user.setNoRechargeBalance(js.getString("noRechargeBalance"));
+                        user.setNoBidMoney(js.getString("noBidMoney"));
+                        user.setMobile(js.getString("mobile"));
+                        user.setLevelName(js.getString("levelName"));
+                        user.setUserNo(js.getString("userNo"));
+                        user.setToken(token);
+                        WebServiceManager.getInstance().setToken(token);
+
+                        //设置登陆成功
+                        PreferenceUtils.setLogin(true);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Log.d("httplog", "response error", e);
+                    }
+                }
+
+            }
+        });
     }
 }

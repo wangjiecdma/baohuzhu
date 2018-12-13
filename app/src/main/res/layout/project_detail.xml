@@ -41,11 +41,10 @@
             android:id="@+id/project_amount_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_below="@id/xx_project_name"
+            android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="互助总额 :"
-            />
+            android:text="互助总额 :" />
 
         <TextView
             android:id="@+id/project_amount_edit"
@@ -185,24 +184,45 @@
             android:gravity="center"
             android:text="2018.10.1-2018.10.31" />
     </RelativeLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
+            android:id="@+id/project_closetime_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="截止日期："
-            />
+            android:text="截止日期：" />
+
         <TextView
+            android:id="@+id/project_close_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018.09.30"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_closetime_text"
+            android:text="2018.09.30" />
+        <TextView
+            android:id="@+id/project_status_text_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:gravity="center"
+            android:text="项目状态 :"
             />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/project_status_text_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/project_status_text_item"
+            android:gravity="center"
+            android:text="竞标中" />
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -210,27 +230,15 @@
         android:paddingRight="11.3dp"
         android:paddingTop="40dp"
         >
+
         <TextView
+            android:id="@+id/project_warning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="right"
-            android:text="本项目离竞标结束日期还有："
-            />
-        <TextView
-            android:id="@+id/project_duedate_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:textColor="#00CED1"
-            android:textSize="20sp"
-            android:text="30天"
-            />
+            android:gravity="center_horizontal"
+            android:text="本项目离竞标结束日期还有：" />
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

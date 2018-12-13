@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.UserStatus;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 
 public class ActivityMyMainBoard extends BaseActivity {
 
@@ -96,7 +97,12 @@ public class ActivityMyMainBoard extends BaseActivity {
                 ActivityManager.startFragment(ActivityMyMainBoard.this,"账户详情");
             }
         });
+
+        if(PreferenceUtils.isLogin()){
+            this.updateUserStates();
+        }
     }
+
 
 
     private void updateUserStates(){

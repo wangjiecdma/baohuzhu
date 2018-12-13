@@ -18,6 +18,7 @@ import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.adapter.ProjectAdapter;
+import com.szty.baohuzhu.adapter.SucessProjectAdapter;
 import com.szty.baohuzhu.adapter.ProjectItem;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
@@ -117,19 +118,20 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
                         for (int i =0;i<list.length();i++){
                             JSONObject item = list.getJSONObject(i);
                             ProjectItem  projectItem = new ProjectItem();
-                            projectItem.setID(item.getInt("id"));
-                            projectItem.setType(item.getInt("type"));
-                            projectItem.setTitle(item.getString("title"));
-                            projectItem.setTotalMoney(item.getInt("totalMoney"));
-                            projectItem.setCloseTime(item.getString("closeTime"));
-                            projectItem.setEndTime(item.getString("endTime"));
-                            projectItem.setStartTime(item.getString("startTime"));
-                            projectItem.setNeedNum(item.getInt("needNum"));
-                            projectItem.setInterestRate(item.getString("interestRate"));
-                            projectItem.setBidNum(item.getInt("bidNum"));
-                            projectItem.setCompleteNum(item.getInt("completeNum"));
-                            projectItem.setMonth(item.getInt("timeLimit"));
-                            projectItem.setHelpSelfMoney(item.getString("price"));
+//                            projectItem.setID(item.getInt("id"));
+//                            projectItem.setType(item.getInt("type"));
+//                            projectItem.setTitle(item.getString("title"));
+//                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+//                            projectItem.setCloseTime(item.getString("closeTime"));
+//                            projectItem.setEndTime(item.getString("endTime"));
+//                            projectItem.setStartTime(item.getString("startTime"));
+//                            projectItem.setNeedNum(item.getInt("needNum"));
+//                            projectItem.setInterestRate(item.getString("interestRate"));
+//                            projectItem.setBidNum(item.getInt("bidNum"));
+//                            projectItem.setCompleteNum(item.getInt("completeNum"));
+//                            projectItem.setMonth(item.getInt("timeLimit"));
+//                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectItem.initFromJson(item);
                             projectList.add(projectItem);
 
 
@@ -167,26 +169,27 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
                         for (int i =0;i<list.length();i++){
                             JSONObject item = list.getJSONObject(i);
                             ProjectItem  projectItem = new ProjectItem();
-                            projectItem.setID(item.getInt("id"));
-                            projectItem.setType(item.getInt("type"));
-                            projectItem.setTitle(item.getString("title"));
-                            projectItem.setTotalMoney(item.getInt("totalMoney"));
-                            projectItem.setCloseTime(item.getString("closeTime"));
-                            projectItem.setEndTime(item.getString("endTime"));
-                            projectItem.setStartTime(item.getString("startTime"));
-                            projectItem.setNeedNum(item.getInt("needNum"));
-                            projectItem.setInterestRate(item.getString("interestRate"));
-                            projectItem.setBidNum(item.getInt("bidNum"));
-                            projectItem.setCompleteNum(item.getInt("completeNum"));
-                            projectItem.setMonth(item.getInt("timeLimit"));
-                            projectItem.setHelpSelfMoney(item.getString("price"));
+//                            projectItem.setID(item.getInt("id"));
+//                            projectItem.setType(item.getInt("type"));
+//                            projectItem.setTitle(item.getString("title"));
+//                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+//                            projectItem.setCloseTime(item.getString("closeTime"));
+//                            projectItem.setEndTime(item.getString("endTime"));
+//                            projectItem.setStartTime(item.getString("startTime"));
+//                            projectItem.setNeedNum(item.getInt("needNum"));
+//                            projectItem.setInterestRate(item.getString("interestRate"));
+//                            projectItem.setBidNum(item.getInt("bidNum"));
+//                            projectItem.setCompleteNum(item.getInt("completeNum"));
+//                            projectItem.setMonth(item.getInt("timeLimit"));
+//                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectItem.initFromJson(item);
                             projectList.add(projectItem);
 
 
                         }
                         ListView listView = (ListView)findViewById(R.id.sucecss_listview) ;
 
-                        listView.setAdapter(new ProjectAdapter(projectList,getContext()));
+                        listView.setAdapter(new SucessProjectAdapter(projectList,getContext()));
 
                     }catch (Exception e){
                         e.printStackTrace();
@@ -239,19 +242,20 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
                         for (int i =0;i<list.length();i++){
                             JSONObject item = list.getJSONObject(i);
                             ProjectItem  projectItem = new ProjectItem();
-                            projectItem.setID(item.getInt("id"));
-                            projectItem.setType(item.getInt("type"));
-                            projectItem.setTitle(item.getString("title"));
-                            projectItem.setTotalMoney(item.getInt("totalMoney"));
-                            projectItem.setCloseTime(item.getString("closeTime"));
-                            projectItem.setEndTime(item.getString("endTime"));
-                            projectItem.setStartTime(item.getString("startTime"));
-                            projectItem.setNeedNum(item.getInt("needNum"));
-                            projectItem.setInterestRate(item.getString("interestRate"));
-                            projectItem.setBidNum(item.getInt("bidNum"));
-                            projectItem.setCompleteNum(item.getInt("completeNum"));
-                            projectItem.setMonth(item.getInt("timeLimit"));
-                            projectItem.setHelpSelfMoney(item.getString("price"));
+//                            projectItem.setID(item.getInt("id"));
+//                            projectItem.setType(item.getInt("type"));
+//                            projectItem.setTitle(item.getString("title"));
+//                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+//                            projectItem.setCloseTime(item.getString("closeTime"));
+//                            projectItem.setEndTime(item.getString("endTime"));
+//                            projectItem.setStartTime(item.getString("startTime"));
+//                            projectItem.setNeedNum(item.getInt("needNum"));
+//                            projectItem.setInterestRate(item.getString("interestRate"));
+//                            projectItem.setBidNum(item.getInt("bidNum"));
+//                            projectItem.setCompleteNum(item.getInt("completeNum"));
+//                            projectItem.setMonth(item.getInt("timeLimit"));
+//                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectItem.initFromJson(item);
                             projectList.add(projectItem);
 
 

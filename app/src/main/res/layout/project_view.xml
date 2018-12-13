@@ -65,6 +65,9 @@
                 android:id="@+id/project_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left|center_vertical"
                 android:text="10000"
                 android:textColor="#3c3c3c"
                 android:textSize="58px" />
@@ -94,15 +97,6 @@
                     android:layout_marginBottom="0dp"
                     android:text="1000"
                     android:textSize="58px" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toRightOf="@+id/project_helpcount"
-                    android:text="积分"
-                    android:textColor="#F89418"
-                    android:textSize="26px" />
 
             </RelativeLayout>
 
@@ -163,11 +157,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/button1"
-
                     />
+                    <!--android:src="@drawable/button1"-->
+                    <!--/>-->
 
                 <TextView
+                    android:id="@+id/text_in_authbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -188,11 +183,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/button2"
-
                     />
+                    <!--android:src="@drawable/button2"-->
+                    <!--/>-->
 
                 <TextView
+                    android:id="@+id/text_in_bidbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

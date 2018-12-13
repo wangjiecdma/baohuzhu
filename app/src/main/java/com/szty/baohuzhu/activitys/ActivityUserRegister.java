@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.TextView;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.UserStatus;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ActivityUserRegister extends BaseActivity implements View.OnClickListener{
+
+    private  String  mPhone;
+    private  String  mPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,9 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                 textView = findViewById(R.id.password_login);
                 String pwd = textView.getText().toString();
 
+                mPhone = phone;
+                mPwd = pwd;
+
                 mWebServer.userLogin(phone, pwd, new WebServiceManager.HttpCallback() {
                     @Override
                     public void onResonse(boolean sucess, String body) {
@@ -105,6 +112,14 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                                getNewMessageCount();
 
                                getMessageList();
+
+                               //设置登陆成功
+                               PreferenceUtils.setLogin(true);
+                               PreferenceUtils.setUserName(mPhone);
+                               PreferenceUtils.setPassword(mPwd);
+                               PreferenceUtils.setAutoLogin(true);
+                               //保存登陆的用户其它信息，待加
+
                             }catch (JSONException e){
                                 e.printStackTrace();
                                 Log.d("httplog","response error",e);

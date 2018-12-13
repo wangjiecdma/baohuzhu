@@ -10,6 +10,7 @@ import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.activitys.ActivityMyMainBoard;
 import com.szty.baohuzhu.activitys.ActivityUserRegister;
 import com.szty.baohuzhu.adapter.UserStatus;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 
 public class FragmentMyMain extends FragmentBase {
 
@@ -78,6 +79,10 @@ public class FragmentMyMain extends FragmentBase {
                 ActivityManager.startFragment(getContext(),"消息");
             }
         });
+
+        if(PreferenceUtils.isLogin()){
+            this.updateUserStates();
+        }
     }
 
     @Override
@@ -85,6 +90,39 @@ public class FragmentMyMain extends FragmentBase {
 
         super.onResume();
 
+
+    }
+
+    private void updateUserStates(){
+        UserStatus user =  UserStatus.user();
+        UserStatus status =  UserStatus.user();
+        if (status.getMobile() !=null){
+            Log.d("www","set text for user ");
+            TextView textView = (TextView)findViewById(R.id.login_regist);
+            textView.setText(status.getMobile());
+
+            TextView userType = (TextView) findViewById(R.id.user_type);
+            userType.setVisibility(View.VISIBLE);
+            userType.setText(status.getLevelName());
+
+        }
+//        TextView name = findViewById(R.id.login_regist);
+//        name.setText(user.getNickName());
+//
+//        TextView balance = findViewById(R.id.balance);
+//        balance.setText(user.getBalance());
+//
+//        TextView crashing = findViewById(R.id.crashing);
+//        crashing.setText(user.getCrashIng());
+//
+//        TextView bidmoney = findViewById(R.id.bidmoney);
+//        bidmoney.setText(user.getBidMoney());
+//
+//        TextView noRechargeBalance = findViewById(R.id.noRechargeBalance);
+//        noRechargeBalance.setText(user.getNoRechargeBalance());
+//
+//        TextView noBidMoney = findViewById(R.id.noBidMoney);
+//        noBidMoney.setText(user.getNoBidMoney());
 
     }
 

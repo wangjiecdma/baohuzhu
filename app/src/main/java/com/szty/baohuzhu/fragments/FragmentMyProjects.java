@@ -43,19 +43,20 @@ public class FragmentMyProjects extends FragmentBase {
                         for (int i =0;i<list.length();i++){
                             JSONObject item = list.getJSONObject(i);
                             ProjectItem  projectItem = new ProjectItem();
-                            projectItem.setID(item.getInt("id"));
-                            projectItem.setType(item.getInt("type"));
-                            projectItem.setTitle(item.getString("title"));
-                            projectItem.setTotalMoney(item.getInt("totalMoney"));
-                            projectItem.setCloseTime(item.getString("closeTime"));
-                            projectItem.setEndTime(item.getString("endTime"));
-                            projectItem.setStartTime(item.getString("startTime"));
-                            projectItem.setNeedNum(item.getInt("needNum"));
-                            projectItem.setInterestRate(item.getString("interestRate"));
-                            projectItem.setBidNum(item.getInt("bidNum"));
-                            projectItem.setCompleteNum(item.getInt("completeNum"));
-                            projectItem.setMonth(item.getInt("timeLimit"));
-                            projectItem.setHelpSelfMoney(item.getString("price"));
+//                            projectItem.setID(item.getInt("id"));
+//                            projectItem.setType(item.getInt("type"));
+//                            projectItem.setTitle(item.getString("title"));
+//                            projectItem.setTotalMoney(item.getInt("totalMoney"));
+//                            projectItem.setCloseTime(item.getString("closeTime"));
+//                            projectItem.setEndTime(item.getString("endTime"));
+//                            projectItem.setStartTime(item.getString("startTime"));
+//                            projectItem.setNeedNum(item.getInt("needNum"));
+//                            projectItem.setInterestRate(item.getString("interestRate"));
+//                            projectItem.setBidNum(item.getInt("bidNum"));
+//                            projectItem.setCompleteNum(item.getInt("completeNum"));
+//                            projectItem.setMonth(item.getInt("timeLimit"));
+//                            projectItem.setHelpSelfMoney(item.getString("price"));
+                            projectItem.initFromJson(item);
                             projectList.add(projectItem);
 
 
