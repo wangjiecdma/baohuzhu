@@ -183,6 +183,13 @@
             android:visibility="invisible"
             >
 
+            <!--增加下面的0占位线性布局，解决互助页面出来焦点就在搜索输入框的问题-->
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

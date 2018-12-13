@@ -123,7 +123,7 @@ public class FragmentMyMain extends FragmentBase {
 //            }
 //        };
         dataChangedReceiver = new MyBroadcastReceiver(this);
-        
+
         broadcastManager.registerReceiver(dataChangedReceiver, intentFilter);
 
     }
