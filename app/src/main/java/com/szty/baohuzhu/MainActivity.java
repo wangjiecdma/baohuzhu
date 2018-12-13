@@ -21,6 +21,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
+
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<View>      mTabArray = new ArrayList<View>();
@@ -89,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 selectTabIndex(2,false);
                 selectTabIndex(3,false);
                 selectTabIndex(index,true);
+
             }
         });
         tabHost.setCurrentTab(1);
@@ -206,6 +212,11 @@ public class MainActivity extends AppCompatActivity {
 
                         //设置登陆成功
                         PreferenceUtils.setLogin(true);
+
+                        Intent mIntent = new Intent("hzb.dataChanged");
+                        mIntent.putExtra("message","this message is from subActivity");
+                        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(mIntent);
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();

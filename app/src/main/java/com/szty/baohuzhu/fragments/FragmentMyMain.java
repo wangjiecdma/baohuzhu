@@ -1,6 +1,8 @@
 package com.szty.baohuzhu.fragments;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +14,21 @@ import com.szty.baohuzhu.activitys.ActivityUserRegister;
 import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
+
+
 public class FragmentMyMain extends FragmentBase {
+
+    private BroadcastReceiver dataChangedReceiver;
+
+    TextView loginOrRegister;
+    TextView userLever;
+
 
     public FragmentMyMain(){
 
@@ -80,8 +96,58 @@ public class FragmentMyMain extends FragmentBase {
             }
         });
 
+        loginOrRegister = (TextView)findViewById(R.id.login_regist);
+        userLever = (TextView) findViewById(R.id.user_type);
+
         if(PreferenceUtils.isLogin()){
             this.updateUserStates();
+        }
+
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("hzb.dataChanged");
+//        dataChangedReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent){
+//                String msg = intent.getStringExtra("data");
+//                //FragmentMyMain.updateUserStates();
+//
+//
+//            }
+//        };
+        dataChangedReceiver = new MyBroadcastReceiver(this);
+        
+        broadcastManager.registerReceiver(dataChangedReceiver, intentFilter);
+
+    }
+
+    private class MyBroadcastReceiver extends BroadcastReceiver{
+        FragmentMyMain myMain;
+        public MyBroadcastReceiver(FragmentMyMain frag) {
+            myMain=frag;
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent){
+            String msg = intent.getStringExtra("data");
+            myMain.updateUserStates();
+
+        }
+
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (dataChangedReceiver != null) {
+            LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(dataChangedReceiver);
         }
     }
 
@@ -93,17 +159,16 @@ public class FragmentMyMain extends FragmentBase {
 
     }
 
-    private void updateUserStates(){
-        UserStatus user =  UserStatus.user();
+    public void updateUserStates(){
+
         UserStatus status =  UserStatus.user();
         if (status.getMobile() !=null){
             Log.d("www","set text for user ");
-            TextView textView = (TextView)findViewById(R.id.login_regist);
-            textView.setText(status.getMobile());
 
-            TextView userType = (TextView) findViewById(R.id.user_type);
-            userType.setVisibility(View.VISIBLE);
-            userType.setText(status.getLevelName());
+            loginOrRegister.setText(status.getMobile());
+
+            userLever.setVisibility(View.VISIBLE);
+            userLever.setText(status.getLevelName());
 
         }
 //        TextView name = findViewById(R.id.login_regist);

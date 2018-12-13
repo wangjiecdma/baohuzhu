@@ -331,6 +331,8 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
             findViewById(R.id.segment_line_center).setVisibility(View.VISIBLE);
             findViewById(R.id.create_panel).setVisibility(View.VISIBLE);
 
+            this.initMyProjectList();
+
         }else if (v.getId()== R.id.segment_index3){
             rightText.setTextColor(Color.RED);
             findViewById(R.id.segment_line_right).setVisibility(View.VISIBLE);
