@@ -1,11 +1,13 @@
 package com.szty.baohuzhu.adapter;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.ArrayList;
 
 
 
@@ -32,23 +34,63 @@ public class ProjectItem {
     private int timeType;
     private boolean isAuth;
 
+    private int first;
+    private int continueTimes; //根据这个参数来显示 参标人员还是续标详情
+
+    private ArrayList<ProjectMembers> projectMembers = new ArrayList<ProjectMembers>();
+
+    public ArrayList<ProjectContinuesDetail> getProjectContinues() {
+        return projectContinues;
+    }
+
+    public void setProjectContinues(ArrayList<ProjectContinuesDetail> projectContinues) {
+        this.projectContinues = projectContinues;
+    }
+
+    private ArrayList<ProjectContinuesDetail> projectContinues = new ArrayList<ProjectContinuesDetail>();
+
+
+    public int getContinueTimes() {
+        return continueTimes;
+    }
+
+    public void setContinueTimes(int continueTimes) {
+        this.continueTimes = continueTimes;
+    }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public void setFirst(int first) {
+        this.first = first;
+    }
+
+    public ArrayList<ProjectMembers> getProjectMembers() {
+        return projectMembers;
+    }
+
+    public void setProjectMembers(ArrayList<ProjectMembers> projectMembers) {
+        this.projectMembers = projectMembers;
+    }
+
     //互助期限类型
-    final int PROJECT_DURATION_TYPE_DAY = 1;
-    final int PROJECT_DURATION_TYPE_MONTH = 2;
-    final int PROJECT_DURATION_TYPE_YEAR = 3;
+    final static int PROJECT_DURATION_TYPE_DAY = 1;
+    final static int PROJECT_DURATION_TYPE_MONTH = 2;
+    final static int PROJECT_DURATION_TYPE_YEAR = 3;
  
     //互助项目状态
     //标的状态 3 竞标中 4 待评标 6 服务中 8待结项 9已完结 10逾期 20 已经竞标 21 可以续标  22 已经续标
-    final int PROJECT_BIDING = 3;
-    final int PROJECT_EVALUATING = 4;
-    final int PROJECT_SERVING = 6;
-    final int PROJECT_TO_BE_RETURN = 7;
-    final int PROJECT_ENDING = 8;
-    final int PROJECT_ENDED = 9;
-    final int PROJECT_OVERDUE = 10;
-    final int PROJECT_BIDED = 20;
-    final int PROJECT_CANCONTINUE = 21;
-    final int PROJECT_CANCONTINUED = 22;
+    final static int PROJECT_BIDING = 3;
+    final static int PROJECT_EVALUATING = 4;
+    final static int PROJECT_SERVING = 6;
+    final static int PROJECT_TO_BE_RETURN = 7;
+    final static int PROJECT_ENDING = 8;
+    final static int PROJECT_ENDED = 9;
+    final static int PROJECT_OVERDUE = 10;
+    final static int PROJECT_BIDED = 20;
+    final static int PROJECT_CANCONTINUE = 21;
+    final static int PROJECT_CANCONTINUED = 22;
 
 
 
@@ -217,6 +259,27 @@ public class ProjectItem {
             this.setTimeType(item.getInt("timeType"));
             this.setBidStatus(item.getInt("bidStatus"));
             this.setAuth(item.getBoolean("auth"));
+            this.setFirst(item.getInt("first"));
+            this.setContinueTimes(item.getInt("continueTimes"));
+
+            JSONArray array = item.getJSONArray("members");
+            if(array != null) {
+                for (int i = 0; i < array.length(); i ++){
+                    JSONObject oj = array.getJSONObject(i);
+                    ProjectMembers member =  new ProjectMembers();
+                    member.initFromJson(oj);
+                    projectMembers.add(member);
+                }
+            }
+            JSONArray continues = item.getJSONArray("continues");
+            if(continues != null) {
+                for (int i = 0; i < continues.length(); i ++){
+                    JSONObject cn = continues.getJSONObject(i);
+                    ProjectContinuesDetail cnDetail =  new ProjectContinuesDetail();
+                    cnDetail.initFromJson(cn);
+                    projectContinues.add(cnDetail);
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -341,6 +404,17 @@ public class ProjectItem {
 
         return isBidButton;
         
+    }
+
+    public String getAttrStr(){
+        String  strAttr = "首标";;
+
+        if(first != 1){
+            strAttr = "续标";
+        }
+
+        return strAttr;
+
     }
     
     public String getAuthStr(){

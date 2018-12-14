@@ -1,7 +1,9 @@
 package com.szty.baohuzhu.fragments;
 
 import com.szty.baohuzhu.R;
+import com.szty.baohuzhu.adapter.PContinuesDetailAdapter;
 import com.szty.baohuzhu.adapter.ProjectAdapter;
+import com.szty.baohuzhu.adapter.ProjectMembersAdapter;
 import com.szty.baohuzhu.adapter.ProjectItem;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
@@ -19,7 +21,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,6 +44,9 @@ public class FragmentProjectDetail extends FragmentBase {
     TextView status;
     TextView projectWarning;
 
+    TextView list_text_indicator;
+    ListView partin_or_continue ;
+
 
     public FragmentProjectDetail(){
         super();
@@ -57,11 +64,7 @@ public class FragmentProjectDetail extends FragmentBase {
         titleProject = projectDetail.findViewById(R.id.xx_project_name);
         //title.setText(projectItem.getTitle());
         type = projectDetail.findViewById(R.id.project_attr);
-//        if (projectItem.getType() ==1){
-//            type.setText("首标");
-//        }else{
-//            type.setText("续标");
-//        }
+
 
         totalCount = projectDetail.findViewById(R.id.project_amount_edit);
 //        totalCount.setText(Integer.toString(projectItem.getTotalMoney()));
@@ -93,6 +96,9 @@ public class FragmentProjectDetail extends FragmentBase {
 
         projectWarning = projectDetail.findViewById(R.id.project_warning);
 
+        list_text_indicator = projectDetail.findViewById(R.id.list_text_indicator);
+
+        partin_or_continue =  projectDetail.findViewById(R.id.partin_or_continue_list);
 
 
 
@@ -103,11 +109,7 @@ public class FragmentProjectDetail extends FragmentBase {
     public void setUI(ProjectItem  projectItem){
         titleProject.setText(projectItem.getTitle());
 
-        if (projectItem.getType() ==1){
-            type.setText("首标");
-        }else{
-            type.setText("续标");
-        }
+        type.setText(projectItem.getAttrStr());
 
 
         totalCount.setText(Integer.toString(projectItem.getTotalMoney()));
@@ -134,6 +136,15 @@ public class FragmentProjectDetail extends FragmentBase {
         status.setText(projectItem.getStatusStr());
 
         projectWarning.setText(Html.fromHtml(projectItem.getProjectWarningStrWithHtml()));
+
+        if(projectItem.getContinueTimes() == 0) {
+            list_text_indicator.setText(Html.fromHtml("<small>标的参与者：</small>"));;
+            partin_or_continue.setAdapter(new ProjectMembersAdapter(projectItem.getProjectMembers(), getContext()));
+        }
+        else{
+            list_text_indicator.setText(Html.fromHtml("<small>标的续标详情：</small>"));
+            partin_or_continue.setAdapter(new PContinuesDetailAdapter(projectItem.getProjectContinues(), getContext()));
+        }
 
     }
 

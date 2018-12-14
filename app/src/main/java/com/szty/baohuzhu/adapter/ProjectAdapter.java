@@ -58,7 +58,7 @@ public class ProjectAdapter extends BaseAdapter {
         TextView title = project.findViewById(R.id.project_name);
         title.setText(item.getTitle());
         TextView type = project.findViewById(R.id.project_name2);
-        if (item.getType() ==1){
+        if (item.getFirst() ==1){
             type.setText("首标");
         }else{
             type.setText("续标");
@@ -148,13 +148,14 @@ public class ProjectAdapter extends BaseAdapter {
             Log.d("www","OnClickListener\n");
             HashMap mapParam = new HashMap();
             mapParam.put("projectId",mItem.getID());
-            if (mItem.getType() ==1){
-                //首标详情
-                ActivityManager.startFragment(mContext,"项目详情",mapParam);
-            }else{
-                //续标详情
-                ActivityManager.startFragment(mContext,"项目详情2",mapParam);
-            }
+//            if (mItem.getType() ==1){
+//                //首标详情
+//                ActivityManager.startFragment(mContext,"项目详情",mapParam);
+//            }else{
+//                //续标详情
+//                ActivityManager.startFragment(mContext,"项目详情2",mapParam);
+//            }
+            ActivityManager.startFragment(mContext,"项目详情",mapParam);
 
         }
     }
