@@ -25,6 +25,10 @@ import java.util.List;
 
 public class ProjectAdapter extends BaseAdapter {
 
+    final static int BUTTON_CLICK_AUTH = 1;
+    final static int BUTTON_CLICK_BID = 2;
+    final static int BUTTON_CLICK_ITEM = 3;
+
     private List<ProjectItem > mList;
     private Context mContext;
     public ProjectAdapter(List<ProjectItem> list, Context context){
@@ -84,32 +88,34 @@ public class ProjectAdapter extends BaseAdapter {
         TextView text_in_bidbutton = project.findViewById(R.id.text_in_bidbutton);
         text_in_bidbutton.setText(item.getStatusStr());
 
-        project.findViewById(R.id.project_btn_help).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(PreferenceUtils.isLogin()) {
-                    ActivityManager.startFragment(mContext, "我要授权");
-                }
-                else{
-                    Intent intent = new Intent(mContext, ActivityUserRegister.class);
-                    mContext.startActivity (intent);
-                }
-            }
-        });
+        project.findViewById(R.id.project_btn_help).setOnClickListener(new ClickListener(item, BUTTON_CLICK_AUTH));
+//        project.findViewById(R.id.project_btn_help).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(PreferenceUtils.isLogin()) {
+//                    ActivityManager.startFragment(mContext, "我要授权");
+//                }
+//                else{
+//                    Intent intent = new Intent(mContext, ActivityUserRegister.class);
+//                    mContext.startActivity (intent);
+//                }
+//            }
+//        });
 
-         project.findViewById(R.id.project_btn_bidding).setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 if(PreferenceUtils.isLogin()) {
-                    ActivityManager.startFragment(mContext,"我要竞标");
-                 }
-                 else{
-                     Intent intent = new Intent(mContext, ActivityUserRegister.class);
-                     mContext.startActivity (intent);
-                 }
-
-             }
-         });
+        project.findViewById(R.id.project_btn_bidding).setOnClickListener(new ClickListener(item, BUTTON_CLICK_BID));
+//         project.findViewById(R.id.project_btn_bidding).setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 if(PreferenceUtils.isLogin()) {
+//                    ActivityManager.startFragment(mContext,"我要竞标");
+//                 }
+//                 else{
+//                     Intent intent = new Intent(mContext, ActivityUserRegister.class);
+//                     mContext.startActivity (intent);
+//                 }
+//
+//             }
+//         });
 
          if(item.isAuthButtonEnabled() != true){
              project.findViewById(R.id.project_btn_help).setClickable(false);
@@ -132,15 +138,18 @@ public class ProjectAdapter extends BaseAdapter {
 
 
 
-         project.findViewById(R.id.project_listItem).setOnClickListener(new ClickListener(item));
+         project.findViewById(R.id.project_listItem).setOnClickListener(new ClickListener(item, BUTTON_CLICK_ITEM));
 
        return project;
     }
 
     private class ClickListener implements View.OnClickListener {
         ProjectItem mItem;
-        public ClickListener(ProjectItem item) {
+        int mButtonClickType;
+        public ClickListener(ProjectItem item, int type) {
+
             mItem=item;
+            mButtonClickType = type;
         }
 
         @Override
@@ -148,14 +157,43 @@ public class ProjectAdapter extends BaseAdapter {
             Log.d("www","OnClickListener\n");
             HashMap mapParam = new HashMap();
             mapParam.put("projectId",mItem.getID());
-//            if (mItem.getType() ==1){
-//                //首标详情
-//                ActivityManager.startFragment(mContext,"项目详情",mapParam);
-//            }else{
-//                //续标详情
-//                ActivityManager.startFragment(mContext,"项目详情2",mapParam);
-//            }
-            ActivityManager.startFragment(mContext,"项目详情",mapParam);
+
+            if(mButtonClickType != BUTTON_CLICK_ITEM){
+                if(PreferenceUtils.isLogin() == false) {
+
+                    Intent intent = new Intent(mContext, ActivityUserRegister.class);
+                    mContext.startActivity (intent);
+                    return;
+                }
+            }
+
+            if(mButtonClickType == BUTTON_CLICK_ITEM) {
+    //            if (mItem.getType() ==1){
+    //                //首标详情
+    //                ActivityManager.startFragment(mContext,"项目详情",mapParam);
+    //            }else{
+    //                //续标详情
+    //                ActivityManager.startFragment(mContext,"项目详情2",mapParam);
+    //            }
+                ActivityManager.startFragment(mContext, "项目详情", mapParam);
+            }
+            else if(mButtonClickType == BUTTON_CLICK_AUTH){
+                ActivityManager.startFragment(mContext, "我要授权",mapParam);
+
+            }
+            else if (mButtonClickType == BUTTON_CLICK_BID){
+                if(mItem.getBidStatus() == ProjectItem.PROJECT_BIDING){
+                    ActivityManager.startFragment(mContext,"我要竞标", mapParam);
+                }
+                else if(mItem.getBidStatus() == ProjectItem.PROJECT_CANCONTINUE){
+
+                }
+                else  if(mItem.getBidStatus() == ProjectItem.PROJECT_TO_BE_RETURN ||
+                        mItem.getBidStatus() == ProjectItem.PROJECT_OVERDUE){
+
+                }
+
+            }
 
         }
     }
