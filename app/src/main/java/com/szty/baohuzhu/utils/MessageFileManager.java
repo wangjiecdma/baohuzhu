@@ -39,7 +39,7 @@ public class MessageFileManager {
         List<MessageItem > list = loadFromFile(fileName );
         for (int i =0;i<list.size();i++){
             MessageItem obj = list.get(i);
-            if (obj.date.equals(item.date) && item.type == obj.type){
+            if (obj.createTime.equals(item.createTime) && item.type == obj.type){
                 return;
             }
         }
@@ -53,7 +53,7 @@ public class MessageFileManager {
         for (int i =0;i<list.size();i++){
             MessageItem obj= list.get(i);
 
-            if (obj.type == item.type && obj.date.equals(item.date)){
+            if (obj.type == item.type && obj.createTime.equals(item.createTime)){
                 obj.readed =true;
 
                 saveToFile(list,fileName);
@@ -80,8 +80,8 @@ public class MessageFileManager {
                 item.type = obj.getInt("type");
                 item.content = obj.getString("content");
                 item.title = obj.getString("title");
-                item.date = obj.getString("date");
-                item.readed= obj.getBoolean("readed");
+                item.createTime = obj.getString("createTime");
+                //item.readed = obj.getBoolean("readed");  //服务器端没有这个参数读取会异常端
                 list.add(item);
             }
             inputStream.close();
@@ -101,7 +101,7 @@ public class MessageFileManager {
             JSONArray array = new JSONArray();
             for (MessageItem item :list){
                 JSONObject obj = new JSONObject();
-                obj.put("date",item.date);
+                obj.put("date",item.createTime);
                 obj.put("content",item.content);
                 obj.put("title",item.title);
                 obj.put("type",item.type);

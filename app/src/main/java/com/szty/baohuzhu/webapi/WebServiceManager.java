@@ -228,6 +228,17 @@ public class WebServiceManager {
 
     }
 
+    public void getMessageListByType(int lastID,int type, int timeStamp, HttpCallback callback){
+        JSONObject param = new JSONObject();
+        try{
+            param.put("lastId",lastID);
+            param.put("type",type);
+            param.put("time",timeStamp);
+            httpPost(param,URL_MESSAGE_LIST,callback);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 
     public void getProjectList(int index,int pagesize ,HttpCallback callback){
         JSONObject param = new JSONObject();
@@ -262,16 +273,6 @@ public class WebServiceManager {
         }
     }
 
-    public void getMessageList(int lastID,int type,HttpCallback callback){
-        JSONObject param = new JSONObject();
-        try{
-            param.put("lastId",lastID);
-            param.put("type",type);
-            httpPost(param,URL_MESSAGE_LIST,callback);
-        }catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
     public void toCreateHelp(HttpCallback callback){
         JSONObject param = new JSONObject();
         try{
