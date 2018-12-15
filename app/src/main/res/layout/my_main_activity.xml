@@ -81,188 +81,185 @@
 
 
     <LinearLayout
+        android:id="@+id/btn_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/me_box1"
-
         android:clickable="true"
+
         android:focusable="true"
-        android:id="@+id/btn_account"
-        >
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="可提现钱包（ 银币 ）"
             android:gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            />
+            android:text="可提现钱包（ 银币 ）"
+            android:textColor="@android:color/white" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            >
+            android:layout_marginTop="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="余额"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="余额"
+                android:textColor="@android:color/white" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="提现途中"
                 android:layout_centerInParent="true"
-                android:textColor="@android:color/white"
-                />
+                android:text="提现途中"
+                android:textColor="@android:color/white" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="授权中"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="授权中"
+                android:textColor="@android:color/white" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <TextView
+                android:id="@+id/balance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10000"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:id="@+id/balance"
-                android:textColor="@android:color/white"
-                />
+                android:text="10000"
+                android:textColor="@android:color/white" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3000"
                 android:id="@+id/crashing"
-                android:layout_centerInParent="true"
-                android:textColor="@android:color/white"
-                />
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5000"
+                android:layout_centerInParent="true"
+                android:text="3000"
+                android:textColor="@android:color/white" />
+
+            <TextView
                 android:id="@+id/bidmoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="5000"
+                android:textColor="@android:color/white" />
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="20dp"
-            android:paddingBottom="5dp"
-            >
+            android:paddingBottom="5dp">
+
             <TextView
+                android:id="@+id/push_cash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="充值"
-                android:clickable="true"
-                android:id="@+id/push_cash"
-                android:textColor="@android:color/holo_red_light"
-                />
+                android:textColor="@android:color/holo_red_light" />
+
             <TextView
+                android:id="@+id/pop_cash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="提现"
-                android:clickable="true"
-                android:id="@+id/pop_cash"
 
-                android:textColor="@android:color/holo_red_light"
-                />
+                android:textColor="@android:color/holo_red_light" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/btn_account2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
 
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:padding="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/me_box2"
-
         android:clickable="true"
+
         android:focusableInTouchMode="true"
-        android:id="@+id/btn_account2"
-        >
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="不可提现钱包（ 银币 ）"
             android:gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            />
+            android:text="不可提现钱包（ 银币 ）"
+            android:textColor="@android:color/white" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            >
+            android:layout_marginTop="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="余额"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="余额"
+                android:textColor="@android:color/white" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="授权中"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="授权中"
+                android:textColor="@android:color/white" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
+
             <TextView
+                android:id="@+id/noRechargeBalance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="500"
-                android:id="@+id/noRechargeBalance"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="500"
+                android:textColor="@android:color/white" />
 
             <TextView
+                android:id="@+id/noBidMoney"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5000"
-                android:id="@+id/noBidMoney"
-
                 android:layout_alignParentRight="true"
+
                 android:layout_marginRight="15dp"
-                android:textColor="@android:color/white"
-                />
+                android:text="5000"
+                android:textColor="@android:color/white" />
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout

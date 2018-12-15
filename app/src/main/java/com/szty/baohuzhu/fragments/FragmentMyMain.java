@@ -97,7 +97,21 @@ public class FragmentMyMain extends FragmentBase {
                 ActivityManager.startFragment(getContext(),"我的项目");
             }
         });
-        findViewById(R.id.mylog).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_account).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(PreferenceUtils.isLogin() == false) {
+                    Intent intent = new Intent(getContext(), ActivityUserRegister.class);
+
+                    startActivityForResult(intent, 100);
+                    return;
+                }
+
+                ActivityManager.startFragment(getContext(),"详情记录");
+            }
+        });
+        findViewById(R.id.btn_account2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
