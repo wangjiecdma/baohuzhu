@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.adapter.NewMessageCountsInfo;
 import com.szty.baohuzhu.webapi.WebServiceManager;
+
+import org.json.JSONObject;
 
 public class FragmentMessage extends FragmentBase implements View.OnClickListener {
 
@@ -24,11 +27,24 @@ public class FragmentMessage extends FragmentBase implements View.OnClickListene
 
     @Override
     protected void onInitData() {
-        WebServiceManager.getInstance().getMessageList(0, 0, new WebServiceManager.HttpCallback() {
+        //timestamp 需要实际的上次获取到的最新的那条消息的timeStamp
+        int timstamp = 0; //
+        WebServiceManager.getInstance().getNewMessageCount(0, 0, timstamp, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
                 Log.d("www","message list :"+body);
                 if (sucess){
+                    try{
+                        JSONObject jsonObject = new JSONObject(body);
+                        JSONObject js =jsonObject.getJSONObject("datas").getJSONObject("cs");
+                        NewMessageCountsInfo newMessageCountsInfo = new NewMessageCountsInfo();
+                        newMessageCountsInfo.initFromJson(js);
+                        String str = String.format("new message total counts: %d, sys message count:%d", newMessageCountsInfo.getCount(), newMessageCountsInfo.getSysMsgCount());
+                        Log.d("getNewMessageCount", str);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
 
                 }
             }

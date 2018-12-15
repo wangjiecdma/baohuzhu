@@ -213,12 +213,13 @@ public class WebServiceManager {
         }
     }
 
-    public void getNewMessageCount(HttpCallback callback){
+    public void getNewMessageCount(int lastAccountId, int lastMutualId, int timeStamp,  HttpCallback callback){
 
         JSONObject param = new JSONObject();
         try{
-            param.put("lastId",0);
-            param.put("type",1);
+            param.put("mutualLastId",lastMutualId);
+            param.put("accountLastId",lastAccountId);
+            param.put("time",timeStamp);
             httpPost(param,URL_NEW_MESSAGE,callback);
         }catch (JSONException e){
             e.printStackTrace();
