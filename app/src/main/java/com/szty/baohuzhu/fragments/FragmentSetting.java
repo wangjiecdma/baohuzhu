@@ -55,8 +55,14 @@ public class FragmentSetting extends Fragment {
                                         mIntent.putExtra("message","this message is from subActivity");
                                         LocalBroadcastManager.getInstance(getContext()).sendBroadcast(mIntent);
 
+                                        Toast.makeText(getContext(),"退出成功", Toast.LENGTH_SHORT).show();
+
+                                        //退回上一界面
+                                        getActivity().finish();
+
                                     }
                                     else{
+                                        Toast.makeText(getContext(),"退出失败", Toast.LENGTH_SHORT).show();
 
                                     }
                                 }

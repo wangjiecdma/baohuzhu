@@ -14,6 +14,7 @@ import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 
 public class ActivityMyMainBoard extends BaseActivity {
+    //这个类没有实际实现，实际使用的时FragmentMyMain
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.szty.baohuzhu.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,9 +18,11 @@ import android.widget.TextView;
 import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.activitys.ActivityUserRegister;
 import com.szty.baohuzhu.adapter.ProjectAdapter;
 import com.szty.baohuzhu.adapter.SucessProjectAdapter;
 import com.szty.baohuzhu.adapter.ProjectItem;
+import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
 import org.json.JSONArray;
@@ -83,6 +86,13 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
             @Override
             public void onClick(View v) {
 
+
+                if(PreferenceUtils.isLogin() == false) {
+                    Intent intent = new Intent(getContext(), ActivityUserRegister.class);
+
+                    startActivityForResult(intent, 100);
+                    return;
+                }
 
                 ActivityManager.startFragment(getContext(),"我要创建");
 
