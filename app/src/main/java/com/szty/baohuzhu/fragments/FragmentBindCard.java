@@ -9,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
 public class FragmentBindCard extends Fragment implements View.OnClickListener{
@@ -24,13 +26,15 @@ public class FragmentBindCard extends Fragment implements View.OnClickListener{
         view.findViewById(R.id.sms_code).setOnClickListener(this);
         view.findViewById(R.id.commit).setOnClickListener(this);
 
+        TextView textView = (TextView)view.findViewById(R.id.bider_info_phonenumber);
+        textView.setText(UserStatus.user().getMobile());
         return view;
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.sms_code){
-            WebServiceManager.getInstance().getSMSCode("13564043982", new WebServiceManager.HttpCallback() {
+            WebServiceManager.getInstance().getSMSCode(UserStatus.user().getMobile(), new WebServiceManager.HttpCallback() {
                 @Override
                 public void onResonse(boolean sucess, String body) {
                     if (sucess){
@@ -40,25 +44,34 @@ public class FragmentBindCard extends Fragment implements View.OnClickListener{
             });
         }else if(v.getId() == R.id.commit){
             EditText smscode = getView().findViewById(R.id.text_sms_code);
-            EditText bankCard = getView().findViewById(R.id.bank_name);
-            EditText bankUser = getView().findViewById(R.id.card_number);
-            EditText bankName = getView().findViewById(R.id.bank_name);
+            final EditText bankCard = getView().findViewById(R.id.card_number);
+            final  EditText bankUser = getView().findViewById(R.id.card_number);
+            final  EditText bankName = getView().findViewById(R.id.bank_name);
             EditText userCard =getView().findViewById(R.id.usercard);
 
-            WebServiceManager.getInstance().saveUserAccount("13564043982",smscode.getText().toString(),bankCard.getText().toString()
+            WebServiceManager.getInstance().saveUserAccount(UserStatus.user().getMobile(),smscode.getText().toString(),bankCard.getText().toString()
                     ,bankName.getText().toString(),bankUser.getText().toString(),userCard.getText().toString(),
                     new WebServiceManager.HttpCallback(){
                         @Override
                         public void onResonse(boolean sucess, String body) {
                             Log.d("httplog","bind user infomation:"+body);
 
+                            if (sucess){
+                                UserStatus.user().setBankName(bankName.getText().toString());
+                                UserStatus.user().setBankCard(bankCard.getText().toString());
+                                Toast.makeText(getContext(),"绑卡成功",Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+
+                            }else{
+                                Toast.makeText(getContext(),"绑卡失败",Toast.LENGTH_SHORT).show();
+                            }
 
 
                         }
                     });
 
-            FragmentWithrawCach cach =new FragmentWithrawCach();
-            getFragmentManager().beginTransaction().add(R.id.fragment_content,cach).commit();
+//            FragmentWithrawCach cach =new FragmentWithrawCach();
+//            getFragmentManager().beginTransaction().add(R.id.fragment_content,cach).commit();
 
 
         }

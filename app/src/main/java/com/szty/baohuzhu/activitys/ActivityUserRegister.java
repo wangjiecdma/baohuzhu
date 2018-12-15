@@ -124,7 +124,7 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
                                 e.printStackTrace();
                                 Log.d("httplog","response error",e);
                             }
-
+                            //getUserInfo();
                             finish();
 
                         }else{
@@ -138,6 +138,24 @@ public class ActivityUserRegister extends BaseActivity implements View.OnClickLi
         switchToLogin(true);
 
     }
+
+//    private void getUserInfo(){
+//        WebServiceManager.getInstance().getUserInfo(new WebServiceManager.HttpCallback() {
+//            @Override
+//            public void onResonse(boolean sucess, String body) {
+//                if (sucess){
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(body);
+//
+//                        Log.d("www","get user info :"+body);
+//
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//    }
 
     private void checkVersioin(){
         WebServiceManager.getInstance().checkVersion(new WebServiceManager.HttpCallback() {

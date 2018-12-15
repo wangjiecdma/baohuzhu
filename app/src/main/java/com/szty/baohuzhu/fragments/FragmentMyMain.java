@@ -238,23 +238,23 @@ public class FragmentMyMain extends FragmentBase {
             userLever.setVisibility(View.INVISIBLE);
 
         }
-//        TextView name = findViewById(R.id.login_regist);
-//        name.setText(user.getNickName());
-//
-//        TextView balance = findViewById(R.id.balance);
-//        balance.setText(user.getBalance());
-//
-//        TextView crashing = findViewById(R.id.crashing);
-//        crashing.setText(user.getCrashIng());
-//
-//        TextView bidmoney = findViewById(R.id.bidmoney);
-//        bidmoney.setText(user.getBidMoney());
-//
-//        TextView noRechargeBalance = findViewById(R.id.noRechargeBalance);
-//        noRechargeBalance.setText(user.getNoRechargeBalance());
-//
-//        TextView noBidMoney = findViewById(R.id.noBidMoney);
-//        noBidMoney.setText(user.getNoBidMoney());
+        TextView name = (TextView) findViewById(R.id.login_regist);
+        name.setText(UserStatus.user().getNickName());
+
+        TextView balance = (TextView) findViewById(R.id.balance);
+        balance.setText(UserStatus.user().getBalance());
+
+        TextView crashing =  (TextView)findViewById(R.id.crashing);
+        crashing.setText(UserStatus.user().getCrashIng());
+
+        TextView bidmoney =  (TextView)findViewById(R.id.bidmoney);
+        bidmoney.setText(UserStatus.user().getBidMoney());
+
+        TextView noRechargeBalance =  (TextView)findViewById(R.id.noRechargeBalance);
+        noRechargeBalance.setText(UserStatus.user().getNoRechargeBalance());
+
+        TextView noBidMoney =  (TextView)findViewById(R.id.noBidMoney);
+        noBidMoney.setText(UserStatus.user().getNoBidMoney());
 
     }
 

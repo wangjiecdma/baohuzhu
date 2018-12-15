@@ -164,6 +164,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//    private void getUserInfo(){
+//        WebServiceManager.getInstance().getUserInfo(new WebServiceManager.HttpCallback() {
+//            @Override
+//            public void onResonse(boolean sucess, String body) {
+//                if (sucess){
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(body);
+//
+//                        Log.d("www","get user info :"+body);
+//
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//    }
     private void autoLogin(){
 
         if(PreferenceUtils.isAutoLogin() == false){
@@ -216,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent mIntent = new Intent("hzb.dataChanged");
                         mIntent.putExtra("message","this message is from subActivity");
                         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(mIntent);
-
+                       //getUserInfo();
 
                     } catch (JSONException e) {
                         e.printStackTrace();
