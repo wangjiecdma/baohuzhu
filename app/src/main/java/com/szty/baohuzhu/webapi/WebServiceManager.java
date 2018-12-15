@@ -33,6 +33,7 @@ public class WebServiceManager {
     private final String URL_GET_SMSCODE="/user/smsCode";
     private final String URL_RESET_PWD="/user/resetPwd";
     private final String URL_LOGIN="/user/login";
+    private final String URL_LOGOUT="/user/logout";
     private final String URL_CHECK_VERSION="/appversioninfo/checkVersion";
     private final String URL_POST_PUSH_TOKEN="/token/bind";
     private final String URL_NEW_MESSAGE="/usermsg/getNewMsgCount";
@@ -199,6 +200,15 @@ public class WebServiceManager {
             param.put("pwd",pwd);
             httpPost(param,URL_LOGIN,callback);
         }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void userLogout(HttpCallback callback){
+        JSONObject param = new JSONObject();
+        try{
+            httpPost(param,URL_LOGOUT,callback);
+        }catch (Exception e){
             e.printStackTrace();
         }
     }

@@ -57,27 +57,25 @@
     </RelativeLayout>
 
 
-
     <RelativeLayout
+        android:id="@+id/loginout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/box"
         android:clickable="true"
         android:focusable="true"
-        android:id="@+id/loginout"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="退出登录"
             android:layout_centerInParent="true"
-            android:textColor="@android:color/black"
-            />
+            android:text="退出登录"
+            android:textColor="@android:color/black" />
     </RelativeLayout>
 
 

@@ -29,14 +29,14 @@
                 android:orientation="vertical"
                 android:paddingTop="25dp"
                 >
+
                 <TextView
+                    android:id="@+id/login_regist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="登录/注册"
-                    android:textColor="@android:color/white"
                     android:clickable="true"
-                    android:id="@+id/login_regist"
-                    />
+                    android:text="登录/注册"
+                    android:textColor="@android:color/white" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

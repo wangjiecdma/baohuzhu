@@ -1,5 +1,7 @@
 package com.szty.baohuzhu.adapter;
 
+import org.json.JSONObject;
+
 public class UserStatus {
     private String token ; //登陆访问token
     private String userNo;//用户号
@@ -189,5 +191,35 @@ public class UserStatus {
 
     public static UserStatus user(){
         return sUser;
+    }
+    public void  initFromJson(JSONObject account ){
+        //token是特殊成员，其它地方接口的account或user字段不带token，token需要setToken赋值或更新
+        //由于将sUser作为全局变量了，使用时先使用UserStatus.user获取，再使用user.initFromJson初始化或更新
+        try {
+            this.setUid(account.getInt("uid"));
+            this.setNickName(account.getString("nickName"));
+            this.setAdCode(account.getString("adCode"));
+            this.setTotalMoney(account.getString("totalMoney"));
+            this.setTotalCrash(account.getString("totalCrash"));
+            this.setCrashIng(account.getString("crashIng"));
+            this.setTotalProfit(account.getString("totalProfit"));
+
+            this.setBalance(account.getString("balance"));
+            this.setBankCard(account.getString("bankCard"));
+            this.setBankName(account.getString("bankName"));
+            this.setIco(account.getString("ico"));
+            this.setSex(account.getString("sex"));
+            this.setBirthday(account.getString("birthday"));
+            this.setBidMoney(account.getString("bidMoney"));
+            this.setNoRechargeBalance(account.getString("noRechargeBalance"));
+            this.setNoBidMoney(account.getString("noBidMoney"));
+            this.setMobile(account.getString("mobile"));
+            this.setLevelName(account.getString("levelName"));
+            this.setUserNo(account.getString("userNo"));
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

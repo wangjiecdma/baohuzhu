@@ -44,9 +44,12 @@ public class FragmentMyMain extends FragmentBase {
         findViewById(R.id.login_regist).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),ActivityUserRegister.class);
 
-                startActivityForResult(intent,100);
+                if(PreferenceUtils.isLogin() == false) {
+                    Intent intent = new Intent(getContext(), ActivityUserRegister.class);
+
+                    startActivityForResult(intent, 100);
+                }
             }
         });
 
@@ -161,14 +164,23 @@ public class FragmentMyMain extends FragmentBase {
 
     public void updateUserStates(){
 
+
         UserStatus status =  UserStatus.user();
-        if (status.getMobile() !=null){
-            Log.d("www","set text for user ");
 
-            loginOrRegister.setText(status.getMobile());
+        if(PreferenceUtils.isLogin()) {
+            if (status.getMobile() != null) {
+                Log.d("www", "set text for user ");
 
-            userLever.setVisibility(View.VISIBLE);
-            userLever.setText(status.getLevelName());
+                loginOrRegister.setText(status.getMobile());
+
+                userLever.setVisibility(View.VISIBLE);
+                userLever.setText(status.getLevelName());
+
+            }
+        }
+        else{
+            loginOrRegister.setText("登录/注册");
+            userLever.setVisibility(View.INVISIBLE);
 
         }
 //        TextView name = findViewById(R.id.login_regist);
