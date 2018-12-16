@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
+import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.utils.CommomDialog;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
@@ -57,6 +58,7 @@ public class FragmentSetting extends Fragment {
 
                                         Toast.makeText(getContext(),"退出成功", Toast.LENGTH_SHORT).show();
 
+                                        UserStatus.loginOut();
                                         //退回上一界面
                                         getActivity().finish();
 

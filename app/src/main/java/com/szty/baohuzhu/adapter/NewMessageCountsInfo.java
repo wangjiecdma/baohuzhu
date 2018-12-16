@@ -1,5 +1,7 @@
 package com.szty.baohuzhu.adapter;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 public class NewMessageCountsInfo {
@@ -116,19 +118,25 @@ public class NewMessageCountsInfo {
             this.setAccountMsgCount(item.getInt("accountMsgCount"));
             this.setMutualMsgCount(item.getInt("mutualMsgCount"));
             this.setShopMsgCount(item.getInt("shopMsgCount"));
-            this.setShopMsgCount(item.getInt("sysMsgCount"));
+            this.setSysMsgCount(item.getInt("sysMsgCount"));
 
-            JSONObject jsLastAccountMsg = item.getJSONObject("lastAccountMsg");
-            this.lastAccountMsg = new LastMessage();
-            this.lastAccountMsg.initFromJson(jsLastAccountMsg);
+            if (item.has("lastAccountMsg")&& (item.get("lastAccountMsg")!= JSONObject.NULL)) {
 
-            JSONObject jsLastMutualMsg = item.getJSONObject("lastMutualMsg");
-            this.lastMutualMsg = new LastMessage();
-            this.lastMutualMsg.initFromJson(jsLastMutualMsg);
-
-            JSONObject jsLastSysMsg = item.getJSONObject("lastSysMsg");
-            this.lastSysMsg = new LastMessage();
-            this.lastSysMsg.initFromJson(jsLastSysMsg);
+                Log.d("www","last account msg :"+item.get("lastAccountMsg") );
+                JSONObject jsLastAccountMsg = item.getJSONObject("lastAccountMsg");
+                this.lastAccountMsg = new LastMessage();
+                this.lastAccountMsg.initFromJson(jsLastAccountMsg);
+            }
+            if (item.has("lastMutualMsg")&& (item.get("lastMutualMsg")!= JSONObject.NULL)) {
+                JSONObject jsLastMutualMsg = item.getJSONObject("lastMutualMsg");
+                this.lastMutualMsg = new LastMessage();
+                this.lastMutualMsg.initFromJson(jsLastMutualMsg);
+            }
+            if (item.has("lastSysMsg")&& (item.get("lastSysMsg")!= JSONObject.NULL)) {
+                JSONObject jsLastSysMsg = item.getJSONObject("lastSysMsg");
+                this.lastSysMsg = new LastMessage();
+                this.lastSysMsg.initFromJson(jsLastSysMsg);
+            }
 
 
         }catch (Exception e){

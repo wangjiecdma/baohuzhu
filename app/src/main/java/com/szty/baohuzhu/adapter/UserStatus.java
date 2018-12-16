@@ -5,24 +5,24 @@ import org.json.JSONObject;
 public class UserStatus {
     private String token ; //登陆访问token
     private String userNo;//用户号
-    private String levelName ;//会员级别
-    private String mobile;//手机号
-    private String noBidMoney;//不可提现授权金额
-    private String noRechargeBalance;//不可提现余额
-    private String bidMoney;//可提现授权金额
+    private String levelName ="";//会员级别
+    private String mobile="";//手机号
+    private String noBidMoney="0.0";//不可提现授权金额
+    private String noRechargeBalance="0.0";//不可提现余额
+    private String bidMoney="0.0";//可提现授权金额
     private String birthday;//生日
     private String sex;//性别
     private String ico;//头像
-    private String bankName;//银行名
-    private String bankCard;//银行卡
-    private String balance;//可提现余额
-    private String totalProfit;//金币
-    private String crashIng;//提现中
-    private String totalMoney;//总资产
+    private String bankName="";//银行名
+    private String bankCard="";//银行卡
+    private String balance="0.0";//可提现余额
+    private String totalProfit="0.0";//金币
+    private String crashIng="0.0";//提现中
+    private String totalMoney="0.0";//总资产
     private String adCode;//推广码
-    private String nickName;//昵称
+    private String nickName="登录/注册";//昵称
     private int uid;//用户id
-    private String totalCrash;
+    private String totalCrash="0.0";
 
     public String getTotalCrash() {
         return totalCrash;
@@ -191,6 +191,9 @@ public class UserStatus {
 
     public static UserStatus user(){
         return sUser;
+    }
+    public static void loginOut(){
+        sUser = new UserStatus();
     }
     public void  initFromJson(JSONObject account ){
         //token是特殊成员，其它地方接口的account或user字段不带token，token需要setToken赋值或更新

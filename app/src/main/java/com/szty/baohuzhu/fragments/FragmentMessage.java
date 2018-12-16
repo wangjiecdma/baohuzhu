@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
@@ -41,6 +42,56 @@ public class FragmentMessage extends FragmentBase implements View.OnClickListene
                         newMessageCountsInfo.initFromJson(js);
                         String str = String.format("new message total counts: %d, sys message count:%d", newMessageCountsInfo.getCount(), newMessageCountsInfo.getSysMsgCount());
                         Log.d("getNewMessageCount", str);
+
+                        if (newMessageCountsInfo.getAccountMsgCount()>0){
+                            TextView textView = (TextView) findViewById(R.id.mall_message_count);
+                            textView.setVisibility(View.VISIBLE);
+                            textView.setText(String.valueOf( newMessageCountsInfo.getAccountMsgCount()));
+                        }
+                        if (newMessageCountsInfo.getMutualMsgCount()>0){
+                            TextView textView = (TextView) findViewById(R.id.help_message_count);
+                            textView.setVisibility(View.VISIBLE);
+                            textView.setText(String.valueOf( newMessageCountsInfo.getMutualMsgCount()));
+                        }
+
+                        if (newMessageCountsInfo.getShopMsgCount()>0){
+                            TextView textView = (TextView) findViewById(R.id.order_message_count);
+                            textView.setVisibility(View.VISIBLE);
+                            textView.setText(String.valueOf( newMessageCountsInfo.getShopMsgCount()));
+                        }
+                        if (newMessageCountsInfo.getSysMsgCount()>0){
+                            TextView textView = (TextView) findViewById(R.id.notice_message_count);
+                            textView.setVisibility(View.VISIBLE);
+                            textView.setText(String.valueOf( newMessageCountsInfo.getSysMsgCount()));
+                        }
+
+                        if (newMessageCountsInfo.getLastAccountMsg() != null){
+                            TextView time = (TextView) findViewById(R.id.mall_time);
+                            TextView content = (TextView) findViewById(R.id.mallcontent_text);
+                            time.setText(newMessageCountsInfo.getLastAccountMsg().getTime());
+                            content.setText(newMessageCountsInfo.getLastAccountMsg().getContent());
+                        }
+                        if (newMessageCountsInfo.getLastMutualMsg() != null){
+                            TextView time = (TextView) findViewById(R.id.help_time);
+                            TextView content = (TextView) findViewById(R.id.content_text);
+                            time.setText(newMessageCountsInfo.getLastMutualMsg().getTime());
+                            content.setText(newMessageCountsInfo.getLastMutualMsg().getContent());
+                        }
+                        if (newMessageCountsInfo.getLastShopMsg() != null){
+                            TextView time = (TextView) findViewById(R.id.order_time);
+                            TextView content = (TextView) findViewById(R.id.ordercontent_text);
+                            time.setText(newMessageCountsInfo.getLastShopMsg().getTime());
+                            content.setText(newMessageCountsInfo.getLastShopMsg().getContent());
+                        }
+
+                        if (newMessageCountsInfo.getLastSysMsg() != null){
+                            TextView time = (TextView) findViewById(R.id.notice_time);
+                            TextView content = (TextView) findViewById(R.id.noticecontent_text);
+                            time.setText(newMessageCountsInfo.getLastSysMsg().getTime());
+                            content.setText(newMessageCountsInfo.getLastSysMsg().getContent());
+                            Log.d("www","system message :"+newMessageCountsInfo.getLastSysMsg().getContent()) ;
+                        }
+
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -58,7 +109,20 @@ public class FragmentMessage extends FragmentBase implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        ActivityManager.startFragment(getContext(),"账号消息");
+        if (v.getId() == R.id.order_enter){
+            ActivityManager.startFragment(getContext(),"订单消息");
+
+        }else if(v.getId() == R.id.notice_enter){
+            ActivityManager.startFragment(getContext(),"系统消息");
+
+        }else if(v.getId() == R.id.help_enter){
+            ActivityManager.startFragment(getContext(),"互助消息");
+
+        }else if(v.getId() == R.id.mall_enter){
+            ActivityManager.startFragment(getContext(),"账号消息");
+
+        }
+
 
     }
 }

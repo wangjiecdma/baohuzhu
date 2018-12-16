@@ -65,6 +65,15 @@ public class PreferenceUtils {
         editor.commit();
     }
 
+    public static void setTimestampType(int type,int value){
+        editor.putInt("timestamp_"+type,value);
+        editor.commit();
+    }
+    public static int getTimestampType(int type){
+       return  sharedPreferences.getInt("timestamp_"+type,0);
+    }
+
+
     public static String getpassword() {
         if (sharedPreferences == null) {
             return "";

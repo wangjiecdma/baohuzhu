@@ -11,61 +11,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MessageFileManager {
 
     Context mCon ;
 
-    private static final String fileName = "message.txt";
-    public MessageFileManager(Context context){
+    private  String fileName ;
+    public MessageFileManager(Context context,int type){
+
         mCon = context;
+
+        fileName = String.format("message_%d.txt",type);
     }
 
-    public List< MessageItem> loadMessage(int type){
-        List<MessageItem> list = loadFromFile(fileName);
-        if (list.size()>0) {
-            for (int i = list.size() - 1; i >= 0; i--) {
-                if (list.get(i).type != type){
-                    list.remove(i);
-                }
-            }
 
-        }
-        return list;
-    }
-
-    public void addMessage(MessageItem item){
-        List<MessageItem > list = loadFromFile(fileName );
-        for (int i =0;i<list.size();i++){
-            MessageItem obj = list.get(i);
-            if (obj.createTime.equals(item.createTime) && item.type == obj.type){
-                return;
-            }
-        }
-        list.add(item);
-        saveToFile(list,fileName);
-    }
-
-    public void readMessage(MessageItem item){
-
-        List<MessageItem > list = loadFromFile(fileName );
-        for (int i =0;i<list.size();i++){
-            MessageItem obj= list.get(i);
-
-            if (obj.type == item.type && obj.createTime.equals(item.createTime)){
-                obj.readed =true;
-
-                saveToFile(list,fileName);
-                return;
-
-            }
-        }
-    }
-
-    private List<MessageItem > loadFromFile(String file ){
+    public List<MessageItem > loadFromFile( ){
         try {
-            FileInputStream inputStream = new FileInputStream(file);
+            FileInputStream inputStream = new FileInputStream(mCon.getFileStreamPath(fileName));
             byte buffer[] = new byte[1024*1024];
             int len =  inputStream.read(buffer);
 
@@ -77,14 +42,19 @@ public class MessageFileManager {
             for (int i =0;i<array.length();i++){
                 JSONObject obj= array.getJSONObject(i);
                 MessageItem item = new MessageItem();
-                item.type = obj.getInt("type");
-                item.content = obj.getString("content");
-                item.title = obj.getString("title");
-                item.createTime = obj.getString("createTime");
+                item.initFromJson(obj);
                 //item.readed = obj.getBoolean("readed");  //服务器端没有这个参数读取会异常端
                 list.add(item);
             }
             inputStream.close();
+
+            Collections.sort(list, new Comparator<MessageItem>() {
+                @Override
+                public int compare(MessageItem o1, MessageItem o2) {
+                    return (o2.getSendtimes().compareTo(o1.getSendtimes()));
+                }
+            });
+
             return list;
         }catch (Exception e){
             e.printStackTrace();
@@ -92,20 +62,21 @@ public class MessageFileManager {
         return new ArrayList<>();
     }
 
-    private void  saveToFile(List<MessageItem> list , String  file){
+    public void  saveToFile(List<MessageItem> list){
         try {
-            FileOutputStream outputStream = new FileOutputStream(new File(file));
+            FileOutputStream outputStream = new FileOutputStream(mCon.getFileStreamPath(fileName));
 
             JSONObject jsonObject = new JSONObject();
 
             JSONArray array = new JSONArray();
             for (MessageItem item :list){
                 JSONObject obj = new JSONObject();
-                obj.put("date",item.createTime);
+                obj.put("createTime",item.createTime);
                 obj.put("content",item.content);
                 obj.put("title",item.title);
                 obj.put("type",item.type);
-                obj.put("readed",item.readed);
+                obj.put("extend",item.extend);
+                obj.put("sendtimes",item.sendtimes);
                 array.put(obj);
             }
             jsonObject.put("items",array);

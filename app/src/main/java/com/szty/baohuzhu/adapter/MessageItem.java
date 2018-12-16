@@ -59,7 +59,6 @@ public class MessageItem {
         this.sendtimes = sendtimes;
     }
 
-    public boolean readed;   //实际服务器端没有这个参数，获取就算阅读了。
 
     public String  content;
 

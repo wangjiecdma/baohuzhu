@@ -66,7 +66,9 @@
         android:padding="5dp"
 
         android:background="@drawable/box"
-
+        android:id="@+id/change_nickname"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -90,19 +92,23 @@
         android:padding="5dp"
 
         android:background="@drawable/box"
-
+        android:id="@+id/change_sex"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="性别"
             />
-        <Spinner
-            android:id="@+id/sex_spinner"
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:id="@+id/text_sex"
             />
+
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -112,7 +118,9 @@
         android:layout_marginBottom="5dp"
         android:padding="5dp"
         android:background="@drawable/box"
-
+        android:id="@+id/change_date"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -129,4 +137,26 @@
             android:clickable="true"
             />
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:background="@drawable/box"
+        android:id="@+id/change_pwd"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+            />
+
+    </RelativeLayout>
+
 </LinearLayout>
