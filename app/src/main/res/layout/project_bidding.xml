@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/proj_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="XX项目"
         android:gravity="center"
-        android:textSize="18dp"
-        />
+        android:text="XX项目"
+        android:textSize="18dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -133,8 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/project_bidding_submit_text"
-            android:text="2人"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="2人" />
 
     </RelativeLayout>
     <LinearLayout
@@ -147,12 +147,13 @@
             android:layout_height="wrap_content"
             android:text="项目时间 ："
             />
+
         <TextView
+            android:id="@+id/project_bperiod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018.10.01-2018.10.31"
 
-            />
+            android:text="2018.10.01-2018.10.31" />
 
     </LinearLayout>
 
@@ -223,23 +224,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
         android:padding="10dp"
+
+        android:background="@drawable/box"
         >
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="97dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="授    权"
-            />
-        <TextView
+            android:text="授    权" />
+
+        <EditText
             android:id="@+id/project_bidding_authorize1_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
             android:gravity="right"
-            android:text="500"
-            />
+            android:inputType="number|numberDecimal"
+            android:lines="1"
+            android:text="500" />
     </LinearLayout>
 
     <LinearLayout
@@ -269,7 +278,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
         android:padding="10dp"
+
+        android:background="@drawable/box1"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -278,14 +292,14 @@
             android:gravity="left"
             android:text="授    权"
             />
+
         <TextView
             android:id="@+id/project_bidding_authorize2_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="500"
-            />
+            android:text="500" />
     </LinearLayout>
 
     <LinearLayout
@@ -339,6 +353,7 @@
             android:layout_marginLeft="45dp"
             android:text="确认"
             android:textColor="#ffffff"
+            android:background="@drawable/determine_button"
             />
         <Button
             android:id="@+id/project_bidding_cancle_btn"
@@ -347,6 +362,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="45dp"
             android:text="取消"
+            android:background="@drawable/cancel_button"
             />
 
     </RelativeLayout>

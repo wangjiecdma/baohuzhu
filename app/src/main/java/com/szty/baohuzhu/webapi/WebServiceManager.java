@@ -321,7 +321,7 @@ public class WebServiceManager {
             e.printStackTrace();
         }
     }
-    public void bidHelp(int type ,int mid,int cashMoney , int notMention, HttpCallback callback){
+    public void bidHelp(int type ,int mid, String cashMoney , String notMention, HttpCallback callback){
         JSONObject param = new JSONObject();
         try{
             param.put("type",type);

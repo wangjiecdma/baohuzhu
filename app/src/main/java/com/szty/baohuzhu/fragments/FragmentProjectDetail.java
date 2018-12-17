@@ -156,7 +156,7 @@ public class FragmentProjectDetail extends FragmentBase {
         HashMap map=(HashMap)intent.getSerializableExtra("userParam");
         projectID = Integer.parseInt(map.get("projectId").toString());
 
-        WebServiceManager.getInstance().getHelpDetail(1, projectID, new WebServiceManager.HttpCallback() {
+        WebServiceManager.getInstance().getHelpDetail(ProjectItem.PROJECT_DETAIL, projectID, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
 
