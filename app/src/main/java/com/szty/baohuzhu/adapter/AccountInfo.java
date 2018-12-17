@@ -3,7 +3,7 @@ package com.szty.baohuzhu.adapter;
 import org.json.JSONObject;
 
 public class AccountInfo {
-    //实际又不到这多属性，后面再优化
+    //实际用不到这多属性，后面再优化
     public int getAcountId() {
         return acountId;
     }

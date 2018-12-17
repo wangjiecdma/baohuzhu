@@ -29,7 +29,7 @@ public class FragmentMyProjects extends FragmentBase {
         mListView = getView().findViewById(R.id.list_help);
 
 
-        WebServiceManager.getInstance().getProjectList(0, 10, new WebServiceManager.HttpCallback() {
+        WebServiceManager.getInstance().myHelpList2(0, 10, new WebServiceManager.HttpCallback() {
             @Override
             public void onResonse(boolean sucess, String body) {
 
