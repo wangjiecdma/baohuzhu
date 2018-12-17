@@ -46,7 +46,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-
+            android:id="@+id/menu_line3"
             android:background="#888" />
         <TextView
             android:id="@+id/menu3"

@@ -1,10 +1,15 @@
 package com.szty.baohuzhu.fragments;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -33,6 +40,8 @@ import com.szty.baohuzhu.webapi.WebServiceManager;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -56,10 +65,12 @@ public class FragmentMyInformation extends Fragment {
             @Override
             public void onClick(View v) {
                 //showPop();
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                View view= LayoutInflater.from(getActivity()).inflate(R.layout.picture_selector, null);
-                builder.setView(view);
-                builder.create().show();
+
+                PictureSelector.create(getActivity())
+                        .openGallery(PictureMimeType.ofImage())
+                        .forResult(PictureConfig.CHOOSE_REQUEST);
+
+
 
             }
         });
@@ -117,6 +128,46 @@ public class FragmentMyInformation extends Fragment {
             }
         });
 
+
+        view.findViewById(R.id.change_date).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog.OnDateSetListener dateSetListener  = new DatePickerDialog.OnDateSetListener(){
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                       final String date= String.format("%d-%d-%d",year,month+1,dayOfMonth);
+                        WebServiceManager.getInstance().updateUserInfo("", UserStatus.user().getSex(), date, UserStatus.user().getNickName(), new WebServiceManager.HttpCallback() {
+                            @Override
+                            public void onResonse(boolean sucess, String body) {
+
+                                if (sucess){
+                                    Toast.makeText(getContext(),"修改成功",Toast.LENGTH_LONG).show();
+                                    UserStatus.user().setBirthday(date);
+
+                                    TextView textView = getView().findViewById(R.id.birthday_spinner);
+                                    textView.setText(UserStatus.user().getBirthday());
+
+                                }else{
+                                    Toast.makeText(getContext(),"修改失败",Toast.LENGTH_LONG).show();
+
+                                }
+
+                            }
+                        });
+
+                    }
+                };
+                Dialog dlg = new DatePickerDialog(getContext(),dateSetListener
+                        ,
+                        1980,
+                        0,
+                        1);
+                dlg.show();
+
+            }
+        });
+
         return view;
     }
 
@@ -161,12 +212,16 @@ public class FragmentMyInformation extends Fragment {
         textView.setOnClickListener(clickListener);
 
 
-        textView = view.findViewById(R.id.menu3);
-        textView.setText(menu3);
-        textView.setOnClickListener(clickListener);
+        if(menu3 != null) {
+            textView = view.findViewById(R.id.menu3);
+            textView.setText(menu3);
+            textView.setOnClickListener(clickListener);
 
-        view.findViewById(R.id.menu_cancel).setOnClickListener(clickListener);
-
+            view.findViewById(R.id.menu_cancel).setOnClickListener(clickListener);
+        }else{
+            view.findViewById(R.id.menu3).setVisibility(View.GONE);
+            view.findViewById(R.id.menu_line3).setVisibility(View.GONE);
+        }
         //设置消失监听
        // popupWindow.setOnDismissListener(this);
         //设置背景色
@@ -262,7 +317,12 @@ public class FragmentMyInformation extends Fragment {
                     // 图片选择结果回调
 
                     images = PictureSelector.obtainMultipleResult(data);
-
+                    try {
+                        ImageView imageView=  getView().findViewById(R.id.user_image);
+                         imageView.setImageURI(Uri.fromFile(new File(images.get(0).getPath())));
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                     Log.d("www","image select size :"+images.size());
                     break;
             }

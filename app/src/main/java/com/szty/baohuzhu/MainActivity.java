@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.luck.picture.lib.compress.Luban;
+import com.luck.picture.lib.config.PictureConfig;
 import com.szty.baohuzhu.adapter.UserStatus;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         PreferenceUtils.init(this);
 

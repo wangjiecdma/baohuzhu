@@ -108,7 +108,7 @@ public class FragmentMyMain extends FragmentBase {
                     return;
                 }
 
-                ActivityManager.startFragment(getContext(),"详情记录");
+                ActivityManager.startFragment(getContext(),"账户详情");
             }
         });
         findViewById(R.id.btn_account2).setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,7 @@ public class FragmentMyMain extends FragmentBase {
                     return;
                 }
 
-                ActivityManager.startFragment(getContext(),"详情记录");
+                ActivityManager.startFragment(getContext(),"账户详情");
             }
         });
         findViewById(R.id.my_information).setOnClickListener(new View.OnClickListener() {

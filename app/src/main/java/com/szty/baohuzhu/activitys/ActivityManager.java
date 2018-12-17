@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("充值",FragmentBindCard.class);
         mFragmentMap.put("提现绑卡",FragmentBindCard.class);
 
-        mFragmentMap.put("详情记录",FragmentLogList.class);
+        //mFragmentMap.put("详情记录",FragmentLogList.class);
         mFragmentMap.put("个人信息",FragmentMyInformation.class);
         mFragmentMap.put("设置",FragmentSetting.class);
         mFragmentMap.put("消息",FragmentMessage.class);
@@ -140,5 +141,15 @@ public class ActivityManager extends BaseActivity  {
         context.startActivity(intent);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Object  current = getSupportFragmentManager().findFragmentById(R.id.fragment_content);
+        Log.d("www","onActivity result activity manager:"+current.getClass().getName());
 
+        if (current instanceof FragmentMyInformation){
+            FragmentMyInformation fragmentMyInformation = (FragmentMyInformation)current;
+            fragmentMyInformation.onActivityResult(requestCode,resultCode,data);
+        }
+    }
 }
