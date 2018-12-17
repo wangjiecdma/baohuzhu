@@ -1,10 +1,13 @@
 package com.szty.baohuzhu.fragments;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +33,7 @@ import org.json.JSONObject;
 
 import java.util.LinkedList;
 import java.util.List;
+import android.content.Context;
 
 public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
@@ -49,6 +53,22 @@ public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
         View project = inflater.inflate(R.layout.segment, container, false);
 
         listView_history = (ListView)project.findViewById(R.id.listview_history);
+
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("hzb.dataChanged");
+        BroadcastReceiver dataChangedReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent){
+                String msg = intent.getStringExtra("data");
+                //FragmentMyMain.updateUserStates();
+                initProjectList();
+
+
+            }
+        };
+
+        broadcastManager.registerReceiver(dataChangedReceiver, intentFilter);
 
 
         return   project;

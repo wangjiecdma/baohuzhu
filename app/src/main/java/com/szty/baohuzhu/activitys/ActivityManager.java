@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.fragments.FragmentAccountDetail;
 import com.szty.baohuzhu.fragments.FragmentAuth;
-import com.szty.baohuzhu.fragments.FragmentAuth2;
+import com.szty.baohuzhu.fragments.FragmentBid;
 import com.szty.baohuzhu.fragments.FragmentBindCard;
 import com.szty.baohuzhu.fragments.FragmentCreateNew;
 import com.szty.baohuzhu.fragments.FragmentEditNickName;
@@ -53,7 +53,7 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("我的项目",FragmentMyProjects.class);
         mFragmentMap.put("我要创建",FragmentCreateNew.class);
         mFragmentMap.put("我要授权",FragmentAuth.class);
-        mFragmentMap.put("我要竞标",FragmentAuth2.class);
+        mFragmentMap.put("我要竞标",FragmentBid.class);
 
         mFragmentMap.put("账号消息",FragmentMessageList.class);
         mFragmentMap.put("订单消息",FragmentMessageList.class);

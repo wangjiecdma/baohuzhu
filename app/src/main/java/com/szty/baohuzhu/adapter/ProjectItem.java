@@ -92,7 +92,10 @@ public class ProjectItem {
     final static int PROJECT_CANCONTINUE = 21;
     final static int PROJECT_CANCONTINUED = 22;
 
-
+    //项目详情：1 详情   2 授权详情  3 竞标详情
+    public final static int PROJECT_DETAIL = 1;
+    public final static int PROJECT_AUTH_DETAIL = 2;
+    public final static int PROJECT_BID_DETAIL  = 3;
 
     public void setID(int ID) {
         this.ID = ID;
@@ -583,5 +586,11 @@ public class ProjectItem {
         }
 
         return detail;
+    }
+
+    //for several common ui show
+    public  String getTotalHtmlStrWithTwoColors(){
+        String strAttr = String.format("<font black>互助总额：</font><small>%d</small>",this.totalMoney);
+        return strAttr;
     }
 }
