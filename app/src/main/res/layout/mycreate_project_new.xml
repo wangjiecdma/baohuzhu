@@ -5,31 +5,37 @@
 
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:clickable="true">
 
-        >
-        <RadioButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:layout_weight="1"
-            android:text="需求标"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="提供标"
-            />
-    </LinearLayout>
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+
+            >
+
+            <RadioButton
+                android:id="@+id/radio_button_need"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:paddingLeft="15dp"
+                android:text="需求标" />
+
+            <RadioButton
+                android:id="@+id/radio_button_support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="提供标" />
+        </LinearLayout>
     </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +71,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-
+       android:padding="8dp"
+        
 
         >
 
@@ -75,17 +82,22 @@
             android:gravity="center"
             android:text="项目名称 "
             />
+
         <EditText
             android:id="@+id/mycreate_newproject_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:maxLength="20"
-            android:textSize="15dp"
+            android:background="@color/white"
+            android:gravity="right"
             android:hint="请编辑项目名称，最多20个字"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             android:lines="1"
+            android:maxLength="20"
+            android:nextFocusForward="@id/mycreate_newproject_amount_spinner"
 
-            />
+            android:textSize="12dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -98,6 +110,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
+       android:padding="8dp"
         >
 
         <TextView
@@ -106,45 +119,58 @@
             android:gravity="center"
             android:text="互助总额 "
             />
+
         <EditText
             android:id="@+id/mycreate_newproject_amount_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right"
             android:hint="请输入总金额,不超过200000"
+            android:inputType="number"
             android:lines="1"
 
-            >
+            android:nextFocusForward="@id/mycreate_newproject_date_spinner"
+
+            android:textSize="12dp">
 
         </EditText>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/project_duration_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="11.3dp"
-        android:paddingRight="11.3dp"
-        android:background="@drawable/box"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"        >
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:padding="8dp"
+        android:paddingLeft="11.3dp"
+        android:paddingRight="11.3dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="互助期限 "
-            />
-        <EditText
+            android:text="互助期限 " />
+
+        <TextView
             android:id="@+id/mycreate_newproject_date_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right"
             android:hint="请选择期限"
             android:lines="1"
+            android:nextFocusForward="@id/mycreate_newproject_PopTotal_spinner"
 
-            >
+            android:textSize="12dp">
 
-        </EditText>
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -155,7 +181,9 @@
         android:background="@drawable/box"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"        >
+        android:layout_marginTop="5dp"
+       android:padding="8dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,43 +191,54 @@
             android:gravity="center"
             android:text="需要人数 "
             />
+
         <EditText
             android:id="@+id/mycreate_newproject_PopTotal_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right"
             android:hint="请输入人数，不超过10人"
+            android:inputType="number"
             android:lines="1"
+            android:nextFocusForward="@id/mycreate_newproject_start_spinner"
 
-            >
-        </EditText>
+            android:textSize="12dp"></EditText>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/project_mycreate_startdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="11.3dp"
-        android:paddingRight="11.3dp"
-        android:background="@drawable/box"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"        >
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:padding="8dp"
+        android:paddingLeft="11.3dp"
+        android:paddingRight="11.3dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="项目开始 "
-            />
-        <EditText
+            android:text="项目开始 " />
+
+        <TextView
             android:id="@+id/mycreate_newproject_start_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="right"
             android:hint="请选择三个月以内的时间"
             android:lines="1"
+            android:nextFocusForward="@id/project_mycreate_auth"
 
-            >
-        </EditText>
+
+            android:textSize="12dp"></TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -210,22 +249,24 @@
         android:background="@drawable/box1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"        >
+        android:layout_marginTop="5dp"
+       android:padding="8dp"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="本人出资 "
             />
-        <EditText
+
+        <TextView
+            android:id="@+id/project_self_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:hint="0"
-            android:lines="1"
 
-            />
+            android:text="1000" />
     </LinearLayout>
 
     <LinearLayout
@@ -234,6 +275,9 @@
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
         android:layout_marginTop="5dp"
+
+       android:padding="8dp"
+
         >
         <TextView
             android:layout_width="wrap_content"
@@ -241,16 +285,18 @@
             android:textColor="#FF9900"
             android:text="可提现钱包余额 "
             />
+
         <TextView
+            android:id="@+id/project_mycreate_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:textColor="#FF9900"
-            android:text="1000"
-            android:lines="1"
 
-            />
+            android:text="1000"
+
+
+            android:textColor="#FF9900" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -260,23 +306,27 @@
         android:background="@drawable/box"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+       android:padding="8dp"
                >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="授  权 "
             />
+
         <EditText
+            android:id="@+id/project_mycreate_auth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
             android:gravity="right"
-            android:text="500"
             android:hint="点击可以修改"
+            android:inputType="number|numberDecimal"
             android:lines="1"
 
 
-            />
+            android:text="0" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -284,6 +334,7 @@
         android:paddingLeft="11.3dp"
         android:paddingRight="11.3dp"
         android:layout_marginTop="5dp"
+       android:padding="8dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -292,14 +343,15 @@
             android:textColor="#FF9900"
             android:text="不可提现钱包余额 "
             />
+
         <TextView
+            android:id="@+id/project_mycreate_notbalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:textColor="#FF9900"
             android:text="500"
-            />
+            android:textColor="#FF9900" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -309,21 +361,22 @@
         android:background="@drawable/box1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+       android:padding="8dp"
          >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="授  权 "
             />
-        <EditText
+
+        <TextView
+            android:id="@+id/project_mycreate_auth_not"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="500"
-            android:lines="1"
 
-            />
+            android:text="0" />
     </LinearLayout>
 
     <LinearLayout
@@ -337,16 +390,18 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
         >
+
         <Button
+            android:id="@+id/project_mycreate_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/me_next_button"
-            android:text="下一步"
-            android:textSize="18dp"
+            android:clickable="true"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
 
-            />
+            android:text="下一步"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
