@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/project_mycreate_confirm_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="XX项目"
         android:gravity="center"
-        android:textSize="18dp"
-        />
+        android:text="XX项目"
+        android:textSize="18dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/mycreate_reconfirm_amount_text"
             android:layout_width="wrap_content"
@@ -26,6 +29,7 @@
             android:textSize="15dp"
 
             />
+
         <TextView
             android:id="@+id/mycreate_reconfirm_amountnum_text"
             android:layout_width="wrap_content"
@@ -34,15 +38,14 @@
             android:layout_toRightOf="@+id/mycreate_reconfirm_amount_text"
             android:gravity="center"
             android:text="103000"
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/mycreate_reconfirm_date_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="205dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="互助期限："
             android:textSize="15dp" />
@@ -53,18 +56,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/mycreate_reconfirm_date_text"
-            android:text="1个月"
-            android:textSize="15dp"
             android:gravity="center"
-            />
+            android:text="1个月"
+            android:textSize="15dp" />
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/mycreate_reconfirm_rate_text"
             android:layout_width="wrap_content"
@@ -72,8 +74,8 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="互助利率："
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
+
         <TextView
             android:id="@+id/mycreate_reconfirm_ratenum_text"
             android:layout_width="wrap_content"
@@ -82,15 +84,14 @@
             android:layout_toRightOf="@+id/mycreate_reconfirm_rate_text"
             android:gravity="center"
             android:text="1%"
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/mycreate_reconfirm_PopTotal_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="205dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="需要人数："
             android:textSize="15dp" />
@@ -101,9 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/mycreate_reconfirm_PopTotal_text"
+            android:gravity="center"
             android:text="10人"
-            android:textSize="15dp"
-            android:gravity="center"/>
+            android:textSize="15dp" />
 
     </RelativeLayout>
 
@@ -111,8 +112,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/mycreate_reconfirm_join_text"
             android:layout_width="wrap_content"
@@ -120,8 +121,8 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="目前参与："
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
+
         <TextView
             android:id="@+id/mycreate_reconfirm_joinnum_text"
             android:layout_width="wrap_content"
@@ -129,16 +130,15 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/mycreate_reconfirm_join_text"
             android:gravity="center"
-            android:text="8人"
-            android:textSize="15dp"
-            />
+            android:text="1人"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/mycreate_reconfirm_submit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="205dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="竞标人数："
             android:textSize="15dp" />
@@ -149,35 +149,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/mycreate_reconfirm_submit_text"
-            android:text="2人"
-            android:textSize="15dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="1人"
+            android:textSize="15dp" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="项目时间 ："
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2018.10.01-2018.10.31"
+        android:padding="10dp">
 
-            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="项目时间 ：" />
+
+        <TextView
+            android:id="@+id/project_mycreate_confirm_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="2018.10.01-2018.10.31" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/mycreate_reconfirm_duedate_text"
             android:layout_width="wrap_content"
@@ -185,8 +186,8 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="截至日期："
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
+
         <TextView
             android:id="@+id/mycreate_reconfirm_duedatenum_text"
             android:layout_width="wrap_content"
@@ -195,15 +196,14 @@
             android:layout_toRightOf="@+id/mycreate_reconfirm_duedate_text"
             android:gravity="center"
             android:text="2018.09.30"
-            android:textSize="15dp"
-            />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/mycreate_reconfirm_biddingattri_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="205dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="标的性质："
             android:textSize="15dp" />
@@ -214,52 +214,109 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/mycreate_reconfirm_biddingattri_text"
+            android:gravity="center"
             android:text="需求标"
-            android:textSize="15dp"
-            android:gravity="center"/>
+            android:textSize="15dp" />
 
     </RelativeLayout>
 
 
     <LinearLayout
+        android:id="@+id/project_mycreate_pretips_layout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:padding="15dp"
-        >
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:textSize="12sp"
-            android:textColor="#999999"
             android:text="创建不可撤销"
-            />
+            android:textColor="@color/actionsheet_red"
+            android:textSize="12sp" />
 
     </LinearLayout>
-    <RelativeLayout
+
+    <LinearLayout
+        android:id="@+id/project_mycreate_protocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:gravity="center"
+        android:padding="5dp">
+
+        <CheckBox
+            android:id="@+id/project_bidding_cbx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+
+        <TextView
+            android:id="@+id/project_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="用户竞标协议" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/project_mycreate_confirmcacel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <Button
+            android:id="@+id/project_mycreate_confirm"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="45dp"
-            android:textSize="15sp"
+            android:background="@drawable/determine_button"
+            android:clickable="true"
             android:text="确认"
             android:textColor="#ffffff"
-            />
+            android:textSize="15sp" />
+
         <Button
+            android:id="@+id/project_mycreate_cacel"
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="45dp"
-            android:textSize="15sp"
+            android:background="@drawable/cancel_button"
+            android:clickable="true"
             android:text="取消"
-            />
+            android:textSize="15sp" />
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/project_mycreate_sucess_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="创建成功！如果竞标失败将获得种子资金100%的金币奖励"
+        android:textColor="@color/actionsheet_blue" />
+
+    <RelativeLayout
+        android:id="@+id/project_mycreate_return_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/project_mycreate_return"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/determine_button"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="返回" />
+    </RelativeLayout>
 
 
 </LinearLayout>

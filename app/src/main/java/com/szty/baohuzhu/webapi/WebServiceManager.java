@@ -13,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -506,6 +508,26 @@ public class WebServiceManager {
             param.put("helpSelfMoney",helpSelfMoney);
             param.put("cashMoney",cashMoney);
             param.put("notMention",notMention);
+            httpPost(param,URL_CREATE_HELP,callback);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void createHelp(HashMap mapParam, HttpCallback callback){
+        JSONObject param = new JSONObject(mapParam);
+        try{
+//            param.put("type",type);
+//            param.put("title",title);
+//            param.put("totalMoney",totalMoney);
+//            param.put("month",month);
+//            param.put("needNum",needNum);
+//            param.put("startTime",startTime);
+//            param.put("endTime",endTime);
+//            param.put("closeTime",closeTime);
+//            param.put("helpSelfMoney",helpSelfMoney);
+//            param.put("cashMoney",cashMoney);
+//            param.put("notMention",notMention);
             httpPost(param,URL_CREATE_HELP,callback);
         }catch (Exception e){
             e.printStackTrace();

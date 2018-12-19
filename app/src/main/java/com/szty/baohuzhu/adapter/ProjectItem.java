@@ -75,9 +75,9 @@ public class ProjectItem {
     }
 
     //互助期限类型
-    final static int PROJECT_DURATION_TYPE_DAY = 1;
-    final static int PROJECT_DURATION_TYPE_MONTH = 2;
-    final static int PROJECT_DURATION_TYPE_YEAR = 3;
+    public final static int PROJECT_DURATION_TYPE_DAY = 1;
+    public final static int PROJECT_DURATION_TYPE_MONTH = 2;
+    public final static int PROJECT_DURATION_TYPE_YEAR = 3;
  
     //互助项目状态
     //标的状态 3 竞标中 4 待评标 6 服务中 8待结项 9已完结 10逾期 20 已经竞标 21 可以续标  22 已经续标

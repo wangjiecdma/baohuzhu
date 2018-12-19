@@ -15,6 +15,7 @@ import com.szty.baohuzhu.fragments.FragmentAccountDetail;
 import com.szty.baohuzhu.fragments.FragmentAuth;
 import com.szty.baohuzhu.fragments.FragmentBid;
 import com.szty.baohuzhu.fragments.FragmentBindCard;
+import com.szty.baohuzhu.fragments.FragmentCreateConfirm;
 import com.szty.baohuzhu.fragments.FragmentCreateNew;
 import com.szty.baohuzhu.fragments.FragmentEditNickName;
 import com.szty.baohuzhu.fragments.FragmentLogList;
@@ -53,6 +54,7 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("消息",FragmentMessage.class);
         mFragmentMap.put("我的项目",FragmentMyProjects.class);
         mFragmentMap.put("我要创建",FragmentCreateNew.class);
+        mFragmentMap.put("创建项目",FragmentCreateConfirm.class);
         mFragmentMap.put("我要授权",FragmentAuth.class);
         mFragmentMap.put("我要竞标",FragmentBid.class);
 

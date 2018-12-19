@@ -20,8 +20,10 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.szty.baohuzhu.R;
+import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.adapter.AccountInfo;
 import com.szty.baohuzhu.adapter.Durations;
+import com.szty.baohuzhu.adapter.ProjectItem;
 import com.szty.baohuzhu.adapter.UserLevelInfo;
 import com.szty.baohuzhu.utils.CommomDialog;
 import com.szty.baohuzhu.utils.ConvertUtil;
@@ -49,6 +51,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class FragmentCreateNew extends FragmentBase {
     EditText mPojectTitleInput;
@@ -172,6 +175,9 @@ public class FragmentCreateNew extends FragmentBase {
                             mTotalInput.setText(String.format("%d",mUserLevel.getMaxMutualMoney()));
                             mTotal = mUserLevel.getMaxMutualMoney();
                         }
+                        if(mPersonNum == 0){
+                            mPersonNum = ConvertUtil.convertToInt(mNeedPersonsInput.getText().toString(),0);
+                        }
                         if(mPersonNum > 0){
                             mShare = ((float) mTotal)/(float) mPersonNum;
                             String str = String.format("%.2f", mShare);
@@ -199,6 +205,9 @@ public class FragmentCreateNew extends FragmentBase {
                     if(mTotal > mUserLevel.getMaxMutualMoney()){
                         mTotalInput.setText(String.format("%d",mUserLevel.getMaxMutualMoney()));
                         mTotal = mUserLevel.getMaxMutualMoney();
+                    }
+                    if(mPersonNum == 0){
+                        mPersonNum = ConvertUtil.convertToInt(mNeedPersonsInput.getText().toString(),0);
                     }
                     if(mPersonNum > 0){
                         mShare = ((float) mTotal)/(float) mPersonNum;
@@ -228,6 +237,9 @@ public class FragmentCreateNew extends FragmentBase {
                     }
                     if(num > 0){
                         mPersonNum = num;
+                        if(mTotal == 0){
+                            mTotal = ConvertUtil.convertToInt(mTotalInput.getText().toString(),0);
+                        }
                         mShare = ((float) mTotal)/(float) mPersonNum;
                         String str = String.format("%.2f", mShare);
 
@@ -250,6 +262,10 @@ public class FragmentCreateNew extends FragmentBase {
                     int num = ConvertUtil.convertToInt(numStr,0);
                     if(num > 0){
                         mPersonNum = num;
+
+                        if(mTotal == 0){
+                            mTotal = ConvertUtil.convertToInt(mTotalInput.getText().toString(),0);
+                        }
                         mShare = ((float) mTotal)/(float) mPersonNum;
                         String str = String.format("%.2f", mShare);
 
@@ -525,7 +541,7 @@ public class FragmentCreateNew extends FragmentBase {
 
     void NextButtonClicked(){
         if(mPojectTitleInput.getText().toString().equals("") || mTotalInput.getText().toString().equals("")
-            || mDurationTextView.getText().toString().equals("") || mPersonNum == 0 ||
+            || mDurationTextView.getText().toString().equals("") || mNeedPersonsInput.getText().toString().equals("") ||
                 mProjectStartDate.getText().toString().equals("")){
             //弹出提示框
             new CommomDialog(getContext(), R.style.dialog, "资料没有填写完，请填写完再提交", new CommomDialog.OnCloseListener() {
@@ -547,10 +563,68 @@ public class FragmentCreateNew extends FragmentBase {
             })
                     .setTitle(" ").show();
 
-
+            return;
         }
 
+        HashMap mapParam = new HashMap();
 
+        String type = "2"; //提供标
+        if(mRadioButtonNeed.isChecked()) {
+            type = "1"; //需求标
+        }
+        mapParam.put("type",type);
+        mapParam.put("title", mPojectTitleInput.getText().toString());
+        mapParam.put("totalMoney",mTotalInput.getText().toString());
+        mapParam.put("month",mDuraList.get(mDuraIndex).getDuration());
+        mapParam.put("timeType",mDuraList.get(mDuraIndex).getType());
+        //mapParam.put("durationStr",mDuraList.get(mDuraIndex).getDurationString());
+        mapParam.put("rate",mDuraList.get(mDuraIndex).getRate());
+        mapParam.put("needNum",mNeedPersonsInput.getText().toString());
+
+        String startDateStr = mProjectStartDate.getText().toString();
+        mapParam.put("startTime",startDateStr);
+
+        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+        try {
+
+            Date date =sdf.parse(startDateStr);
+            Calendar calendarClose = Calendar.getInstance();
+            calendarClose.setTime(date);
+
+            Calendar calendarEnd = Calendar.getInstance();
+            calendarEnd.setTime(date);
+
+            calendarClose.add(Calendar.DAY_OF_MONTH, -1);
+            String closeTimeStr =  sdf.format(calendarClose.getTime());
+
+            int timeType = mDuraList.get(mDuraIndex).getType();
+            if(timeType == ProjectItem.PROJECT_DURATION_TYPE_DAY){
+                calendarEnd.add(Calendar.DAY_OF_YEAR, +mDuraList.get(mDuraIndex).getDuration());
+            }
+            else if(timeType == ProjectItem.PROJECT_DURATION_TYPE_MONTH){
+                calendarEnd.add(Calendar.MONTH, +mDuraList.get(mDuraIndex).getDuration());
+            }
+            else {
+                calendarEnd.add(Calendar.YEAR, +mDuraList.get(mDuraIndex).getDuration());
+            }
+            String endTimeStr = sdf.format(calendarEnd.getTime());
+
+            mapParam.put("endTime", endTimeStr);
+            mapParam.put("closeTime",closeTimeStr);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        mapParam.put("helpSelfMoney", mMyShareText.getText().toString());
+        mapParam.put("cashMoney",((TextView)findViewById(R.id.project_mycreate_auth)).getText().toString());
+        mapParam.put("notMention",((TextView)findViewById(R.id.project_mycreate_auth_not)).getText().toString());
+
+
+
+
+        ActivityManager.startFragment(getContext(), "创建项目",mapParam);
+        getActivity().finish();
 
 
     }

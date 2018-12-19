@@ -1,6 +1,7 @@
 package com.szty.baohuzhu.fragments;
 
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
@@ -12,19 +13,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.activitys.ActivityUserRegister;
 import com.szty.baohuzhu.adapter.ProjectAdapter;
-import com.szty.baohuzhu.adapter.SucessProjectAdapter;
 import com.szty.baohuzhu.adapter.ProjectItem;
+import com.szty.baohuzhu.adapter.SucessProjectAdapter;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
 
@@ -33,7 +30,6 @@ import org.json.JSONObject;
 
 import java.util.LinkedList;
 import java.util.List;
-import android.content.Context;
 
 public class FragmentHuzhu extends FragmentBase implements View.OnClickListener{
 
