@@ -27,6 +27,7 @@ import com.szty.baohuzhu.fragments.FragmentProjectDetail;
 import com.szty.baohuzhu.fragments.FragmentReturnCach;
 import com.szty.baohuzhu.fragments.FragmentSetNewPwd;
 import com.szty.baohuzhu.fragments.FragmentSetting;
+import com.szty.baohuzhu.fragments.FragmentContinueProject;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -57,6 +58,7 @@ public class ActivityManager extends BaseActivity  {
         mFragmentMap.put("创建项目",FragmentCreateConfirm.class);
         mFragmentMap.put("我要授权",FragmentAuth.class);
         mFragmentMap.put("我要竞标",FragmentBid.class);
+        mFragmentMap.put("我要续标",FragmentContinueProject.class);
 
         mFragmentMap.put("账号消息",FragmentMessageList.class);
         mFragmentMap.put("订单消息",FragmentMessageList.class);

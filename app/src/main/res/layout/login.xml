@@ -52,12 +52,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/user1"
             />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="20"
             android:hint="请输入用户名或手机号码"
-            />
+            android:maxLength="20"
+            android:singleLine="true" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,13 +75,14 @@
             android:layout_height="wrap_content"
             android:src="@drawable/user1"
             />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="30"
-            android:inputType="textPassword"
             android:hint="请输入密码"
-            />
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:singleLine="true" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

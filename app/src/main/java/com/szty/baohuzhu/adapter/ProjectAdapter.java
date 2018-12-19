@@ -186,6 +186,7 @@ public class ProjectAdapter extends BaseAdapter {
                     ActivityManager.startFragment(mContext,"我要竞标", mapParam);
                 }
                 else if(mItem.getBidStatus() == ProjectItem.PROJECT_CANCONTINUE){
+                    ActivityManager.startFragment(mContext,"我要续标", mapParam);
 
                 }
                 else  if(mItem.getBidStatus() == ProjectItem.PROJECT_TO_BE_RETURN ||
