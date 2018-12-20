@@ -191,7 +191,7 @@ public class ProjectAdapter extends BaseAdapter {
                 }
                 else  if(mItem.getBidStatus() == ProjectItem.PROJECT_TO_BE_RETURN ||
                         mItem.getBidStatus() == ProjectItem.PROJECT_OVERDUE){
-
+                    ActivityManager.startFragment(mContext,"我要归还", mapParam);
                 }
 
             }

@@ -387,7 +387,7 @@ public class WebServiceManager {
             e.printStackTrace();
         }
     }
-    public void backByBalance(int mid,int balance,int notMention ,HttpCallback callback){
+    public void backByBalance(int mid,float balance,float notMention ,HttpCallback callback){
         JSONObject param = new JSONObject();
         try{
             param.put("mid",mid);

@@ -11,19 +11,14 @@
         android:padding="10dp"
         android:gravity="center"
         >
+
         <TextView
+            android:id="@+id/project_wyreturn_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XX项目   "
-            android:textSize="18sp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="首标"
-            android:textColor="#f24b41"
-            android:textSize="15sp"
-            />
+            android:text="项目   "
+            android:textSize="18sp" />
+
 
     </LinearLayout>
     <RelativeLayout
@@ -31,41 +26,43 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         >
-        <TextView
-            android:id="@+id/bidding_rate_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="利率："
 
-            />
         <TextView
-            android:id="@+id/bidding_ratenum_text"
+            android:id="@+id/project_wyreturn_total_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/bidding_rate_text"
             android:gravity="center"
-            android:text="1%"
+            android:text="互助总额："
 
             />
 
         <TextView
-            android:id="@+id/bidding_renewalrate_text"
+            android:id="@+id/project_wyreturn_total_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/project_wyreturn_total_text"
+            android:gravity="center"
+            android:text="0"
+
+            />
+
+        <TextView
+            android:id="@+id/project_wyreturn_rate_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="205dp"
             android:gravity="center"
-            android:text="续标利率："
+            android:text="待还金额："
 
             />
 
         <TextView
-            android:id="@+id/bidding_renewalratenum_text"
+            android:id="@+id/project_wyreturn_rate_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/bidding_renewalrate_text"
-            android:text="5%"
-            android:gravity="center"/>
+            android:layout_toRightOf="@+id/project_wyreturn_rate_text"
+            android:gravity="center"
+            android:text="0" />
 
     </RelativeLayout>
 
@@ -76,7 +73,7 @@
         android:padding="10dp"
         >
         <TextView
-            android:id="@+id/bidding_duedate_text"
+            android:id="@+id/project_wyreturn_closedate_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -84,17 +81,17 @@
 
             />
         <TextView
-            android:id="@+id/bidding_duedatenum_text"
+            android:id="@+id/project_wyreturn_closedate_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/bidding_duedate_text"
+            android:layout_toRightOf="@+id/project_wyreturn_closedate_text"
             android:gravity="center"
             android:text="2018.09.30"
 
             />
 
         <TextView
-            android:id="@+id/bidding_balance_text"
+            android:id="@+id/project_wyreturn_totalbal_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="205dp"
@@ -102,10 +99,10 @@
             android:text="账户余额："
             />
         <TextView
-            android:id="@+id/bidding_balancenum_text"
+            android:id="@+id/project_wyreturn_totalbal_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/bidding_balance_text"
+            android:layout_toRightOf="@+id/project_wyreturn_totalbal_text"
             android:gravity="center"
             android:textColor="#f24b41"
             android:text="500"
@@ -113,20 +110,41 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/project_myreturn_totalbal_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="可提现钱包：1000，不可提现钱包：0"
+        android:textColor="@color/actionsheet_red" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
         >
+
         <Button
-            android:id="@+id/project_bidding_confirm_btn"
+            android:id="@+id/project_wyreturn_usebal_btn"
             android:layout_width="120dp"
             android:layout_height="30dp"
+            android:background="@drawable/determine_button"
             android:text="使用余额归还"
-            android:textColor="#ffffff"
-            />
+            android:textColor="#ffffff" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/gray_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/font_gray_b"
+        android:gravity="left"
+        android:text=""
+        android:textSize="12dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -134,40 +152,34 @@
         android:padding="10dp"
         >
 
-        <CheckBox
-            android:id="@+id/bidding_payment_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:clickable="true"
-            android:checked="true"
-            />
+
         <TextView
             android:id="@+id/banktransfer_text"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:gravity="center"
-            android:text="银行转账归还"
-            android:layout_marginLeft="50dp"
+            android:gravity="left"
+            android:text="银行转账归还：请将资金转入下面的银行卡并上传凭证"
+            android:textSize="12dp"
+            android:layout_marginLeft="10dp"
             />
+
         <TextView
             android:id="@+id/bank_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/banktransfer_text"
             android:layout_marginLeft="50dp"
-            android:text="银行名："
             android:paddingTop="10dp"
-            />
+            android:text="银行名称：" />
+
         <TextView
             android:id="@+id/bankbranch_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/banktransfer_text"
             android:layout_toRightOf="@id/bank_name_text"
-            android:text="中国工商银行上海支行"
             android:paddingTop="10dp"
-            />
+            android:text="中国工商银行上海支行" />
         <TextView
             android:id="@+id/bankcard_text"
             android:layout_width="wrap_content"
@@ -177,15 +189,15 @@
             android:text="银行卡号："
             android:paddingTop="20dp"
             />
+
         <TextView
             android:id="@+id/card_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bank_name_text"
             android:layout_toRightOf="@id/bankcard_text"
-            android:text="6220123456789012345"
             android:paddingTop="20dp"
-            />
+            android:text="6220123456789012345" />
 
     </RelativeLayout>
     <LinearLayout
@@ -194,13 +206,15 @@
         android:padding="10dp"
         android:gravity="center"
         >
+
         <Button
+            android:id="@+id/project_wyreturn_upload_btn"
             android:layout_width="120dp"
             android:layout_height="30dp"
-            android:textColor="#ffffff"
+            android:background="@drawable/me_next_button"
             android:text="上传还款凭证"
 
-            />
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 
