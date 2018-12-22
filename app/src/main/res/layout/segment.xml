@@ -193,7 +193,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="9dp"
+                android:layout_margin="5dp"
                 android:layout_alignParentTop="true"
                 android:id="@+id/search_view"
                 android:background="@drawable/box"

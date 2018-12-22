@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="XX项目"
-            android:textSize="24sp" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/project_attr"
@@ -27,7 +27,7 @@
             android:layout_marginRight="10dp"
             android:text="首标"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="16dp" />
+            android:textSize="12dp" />
     </RelativeLayout>
 
 
@@ -41,39 +41,43 @@
             android:id="@+id/project_amount_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/xx_project_name"
+
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="互助总额 :" />
+            android:text="互助总额 :"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/project_amount_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/xx_project_name"
+
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_amount_text"
-            android:gravity="center"
-            android:text="10000" />
+            android:gravity="left"
+            android:text="10000"
+            android:textSize="12dp"/>
+
         <TextView
             android:id="@+id/project_date_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:layout_below="@id/xx_project_name"
-            android:gravity="center"
+            android:layout_marginLeft="180dp"
+
+            android:gravity="left"
             android:text="互助期限 :"
-            />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/project_date_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/xx_project_name"
+
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_date_text"
-            android:gravity="center"
-            android:text="1个月" />
+            android:gravity="left"
+            android:text="1个月"
+            android:textSize="12dp"/>
 
     </RelativeLayout>
 
@@ -88,8 +92,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
-            android:text="互助利率 :" />
+            android:gravity="left"
+            android:text="互助利率 :"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/project_ratenum_text"
@@ -97,15 +102,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_rate_text"
-            android:gravity="center"
-            android:text="1%" />
+            android:gravity="left"
+            android:text="1%"
+            android:textSize="12dp"/>
         <TextView
             android:id="@+id/project_PopTotal_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:gravity="center"
+            android:layout_marginLeft="180dp"
+            android:gravity="left"
             android:text="需要人数 :"
+            android:textSize="15dp"
             />
 
         <TextView
@@ -114,8 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_PopTotal_text"
-            android:gravity="center"
-            android:text="10人" />
+            android:gravity="left"
+            android:text="10人"
+            android:textSize="12dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -129,8 +137,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
+            android:gravity="left"
             android:text="目前参与 :"
+            android:textSize="15dp"
+
             />
 
         <TextView
@@ -139,15 +149,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_join_text"
-            android:gravity="center"
-            android:text="8人" />
+            android:gravity="left"
+            android:text="8人"
+            android:textSize="12dp"/>
         <TextView
             android:id="@+id/project_bidding_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:gravity="center"
+            android:layout_marginLeft="180dp"
+            android:gravity="left"
             android:text="竞标人数 :"
+            android:textSize="15dp"
             />
 
         <TextView
@@ -156,8 +168,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_bidding_text"
-            android:gravity="center"
-            android:text="2人" />
+            android:gravity="left"
+            android:text="2人"
+            android:textSize="12dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -171,8 +184,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:gravity="center"
+            android:gravity="left"
             android:text="项目时间 :"
+            android:textSize="15dp"
             />
 
         <TextView
@@ -180,9 +194,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/project_datetime_text"
-            android:gravity="center"
-            android:text="2018.10.1-2018.10.31" />
+            android:gravity="left"
+            android:text="2018.10.1~2018.10.31"
+            android:textSize="12dp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -195,22 +211,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="截止日期：" />
+            android:text="截止日期："
+            android:gravity="left"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/project_close_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/project_closetime_text"
-            android:text="2018.09.30" />
+            android:gravity="left"
+            android:text="2018.09.30"
+            android:textSize="12dp" />
         <TextView
             android:id="@+id/project_status_text_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="205dp"
-            android:gravity="center"
+            android:layout_marginLeft="180dp"
+            android:gravity="left"
             android:text="项目状态 :"
+            android:textSize="15dp"
             />
 
         <TextView
@@ -219,8 +240,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/project_status_text_item"
-            android:gravity="center"
-            android:text="竞标中" />
+            android:gravity="left"
+            android:text="竞标中"
+            android:textSize="12dp"/>
 
     </RelativeLayout>
     <LinearLayout

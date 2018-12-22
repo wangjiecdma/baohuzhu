@@ -13,25 +13,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/card"
+        android:background="@drawable/box"
         android:clickable="true"
-        android:padding="2dp">
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/sucess_help_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="互助项目1"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/sucess_firstsid_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             android:gravity="center"
             android:text="首标"
@@ -41,28 +41,28 @@
         <TextView
             android:id="@+id/sucess_rate_text"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_help_text"
             android:gravity="center"
             android:text="20"
             android:textColor="#FF3300"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/sucess_total_text"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_help_text"
-            android:layout_marginLeft="105dp"
+            android:layout_marginLeft="100dp"
             android:gravity="center"
             android:text="互助总额 "
             android:textColor="#999999"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/project_total"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_help_text"
             android:layout_toRightOf="@id/sucess_total_text"
             android:gravity="center"
@@ -73,39 +73,39 @@
         <TextView
             android:id="@+id/sucess_date_edit"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_help_text"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:gravity="center"
             android:text="2018.10.20"
             android:textColor="#999999"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_rate_text"
             android:gravity="center"
             android:text="折费后年利率"
             android:textColor="#999999"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/sucess_service_text"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_total_text"
-            android:layout_marginLeft="105dp"
+            android:layout_marginLeft="100dp"
             android:gravity="center"
             android:text="服务期限 "
             android:textColor="#999999"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/project_duration"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_total_text"
             android:layout_toRightOf="@id/sucess_service_text"
             android:gravity="center"
@@ -115,13 +115,13 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_below="@id/sucess_date_edit"
             android:layout_alignLeft="@id/sucess_date_edit"
             android:gravity="center"
             android:text="竞标成功时间"
             android:textColor="#999999"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

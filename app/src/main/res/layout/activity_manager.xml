@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="title"
             android:id="@+id/title"
-            android:textSize="26sp"
+            android:textSize="16dp"
             android:textAlignment="center"
             android:layout_centerInParent="true"
             />

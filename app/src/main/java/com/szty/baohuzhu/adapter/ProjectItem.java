@@ -33,8 +33,8 @@ public class ProjectItem {
     private String completeTime;//竞标完成实际
     private int timeType;
     private boolean isAuth;
-
     private int first;
+
     private int continueTimes; //根据这个参数来显示 参标人员还是续标详情
 
     private ArrayList<ProjectMembers> projectMembers = new ArrayList<ProjectMembers>();
