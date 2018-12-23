@@ -3,7 +3,6 @@ package com.szty.baohuzhu.fragments;
 import android.util.Log;
 import android.widget.ListView;
 
-import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.ProjectAdapter;
 import com.szty.baohuzhu.adapter.ProjectItem;

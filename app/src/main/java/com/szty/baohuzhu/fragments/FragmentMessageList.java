@@ -1,6 +1,5 @@
 package com.szty.baohuzhu.fragments;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.adapter.MessageItem;
-import com.szty.baohuzhu.adapter.NewMessageCountsInfo;
 import com.szty.baohuzhu.utils.MessageFileManager;
 import com.szty.baohuzhu.utils.PreferenceUtils;
 import com.szty.baohuzhu.webapi.WebServiceManager;
@@ -133,7 +131,7 @@ public class FragmentMessageList extends FragmentBase {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                View view =  LayoutInflater.from(getContext()).inflate(R.layout.message_item,null);
+                View view =  LayoutInflater.from(getContext()).inflate(R.layout.hzbmessage_item,null);
 
                 TextView title = (TextView)view.findViewById(R.id.message_type);
                 TextView content = (TextView)view.findViewById(R.id.message_content);

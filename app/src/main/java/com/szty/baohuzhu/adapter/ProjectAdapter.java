@@ -7,18 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ImageButton;
 
-import com.szty.baohuzhu.ProjectActivity;
 import com.szty.baohuzhu.R;
 import com.szty.baohuzhu.activitys.ActivityManager;
 import com.szty.baohuzhu.activitys.ActivityUserRegister;
 import com.szty.baohuzhu.utils.PreferenceUtils;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.List;

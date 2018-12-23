@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProjectActivity"
-            android:label="@string/title_activity_project"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activitys.ActivityCreateProject"
             android:label="@string/title_activity_create_project"
             android:theme="@style/AppTheme.NoActionBar">
