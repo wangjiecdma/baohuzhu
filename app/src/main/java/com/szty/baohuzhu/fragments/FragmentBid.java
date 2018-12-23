@@ -140,7 +140,7 @@ public class FragmentBid extends FragmentBase {
 
     private void toNoRightsNum(String msg){
         //弹出提示框
-        new CommomDialog(getContext(), R.style.dialog, msg, new CommomDialog.OnCloseListener() {
+        new CommomDialog(getContext(), R.style.dialoghzb, msg, new CommomDialog.OnCloseListener() {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
                 if(confirm){
@@ -202,7 +202,7 @@ public class FragmentBid extends FragmentBase {
 
             String strTips = String.format("余额不做，本项目需要%s, 你的余额是%.2f，请去充值。", pItem.getHelpSelfMoney(), bal + notbal);
             //弹出提示框
-            new CommomDialog(getContext(), R.style.dialog, strTips, new CommomDialog.OnCloseListener() {
+            new CommomDialog(getContext(), R.style.dialoghzb, strTips, new CommomDialog.OnCloseListener() {
                 @Override
                 public void onClick(Dialog dialog, boolean confirm) {
                     if (confirm) {

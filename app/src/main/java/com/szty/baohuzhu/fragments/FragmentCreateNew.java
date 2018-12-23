@@ -114,7 +114,7 @@ public class FragmentCreateNew extends FragmentBase {
         float notbal = ConvertUtil.convertToFloat(mAccountInfo.getNoRechargeBalance(),0);
         if(share > bal + notbal){
             //弹出提示框
-            new CommomDialog(getContext(), R.style.dialog, "余额不足，请充值或调整总额或人数", new CommomDialog.OnCloseListener() {
+            new CommomDialog(getContext(), R.style.dialoghzb, "余额不足，请充值或调整总额或人数", new CommomDialog.OnCloseListener() {
                 @Override
                 public void onClick(Dialog dialog, boolean confirm) {
                     if(confirm){
@@ -448,7 +448,7 @@ public class FragmentCreateNew extends FragmentBase {
 
     private void toNoRightsNum(String msg){
         //弹出提示框
-        new CommomDialog(getContext(), R.style.dialog, msg, new CommomDialog.OnCloseListener() {
+        new CommomDialog(getContext(), R.style.dialoghzb, msg, new CommomDialog.OnCloseListener() {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
                 if(confirm){
@@ -544,7 +544,7 @@ public class FragmentCreateNew extends FragmentBase {
             || mDurationTextView.getText().toString().equals("") || mNeedPersonsInput.getText().toString().equals("") ||
                 mProjectStartDate.getText().toString().equals("")){
             //弹出提示框
-            new CommomDialog(getContext(), R.style.dialog, "资料没有填写完，请填写完再提交", new CommomDialog.OnCloseListener() {
+            new CommomDialog(getContext(), R.style.dialoghzb, "资料没有填写完，请填写完再提交", new CommomDialog.OnCloseListener() {
                 @Override
                 public void onClick(Dialog dialog, boolean confirm) {
                     if(confirm){

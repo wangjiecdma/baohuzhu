@@ -38,7 +38,7 @@ public class FragmentSetting extends Fragment {
             public void onClick(View v) {
 
                 //弹出提示框
-                new CommomDialog(getContext(), R.style.dialog, "您确定退出登陆？", new CommomDialog.OnCloseListener() {
+                new CommomDialog(getContext(), R.style.dialoghzb, "您确定退出登陆？", new CommomDialog.OnCloseListener() {
                     @Override
                     public void onClick(Dialog dialog, boolean confirm) {
                         if(confirm){

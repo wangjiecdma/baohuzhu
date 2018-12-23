@@ -29,7 +29,7 @@ public class CommomDialog extends Dialog implements View.OnClickListener{
         this.mContext = context;
     }
     public CommomDialog(Context context, String content) {
-        super(context, R.style.dialog);
+        super(context, R.style.dialoghzb);
         this.mContext = context;
         this.content = content;
     }

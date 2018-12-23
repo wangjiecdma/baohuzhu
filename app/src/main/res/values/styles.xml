@@ -70,7 +70,7 @@
     </style>
 
 
-    <style name="dialog" parent="@android:style/Theme.Dialog">
+    <style name="dialoghzb" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <!--边框-->
         <item name="android:windowIsFloating">true</item>

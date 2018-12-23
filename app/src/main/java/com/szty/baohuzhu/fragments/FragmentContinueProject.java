@@ -140,7 +140,7 @@ public class FragmentContinueProject extends FragmentBase {
 
     private void toShowErrorMsg(String msg, final boolean isFinish){
         //弹出提示框
-        new CommomDialog(getContext(), R.style.dialog, msg, new CommomDialog.OnCloseListener() {
+        new CommomDialog(getContext(), R.style.dialoghzb, msg, new CommomDialog.OnCloseListener() {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
                 if(confirm){
