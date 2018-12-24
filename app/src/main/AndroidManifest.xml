@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.szty.baohuzhu">
+    package="com.wyhzb.hbsc">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         tools:replace="android:theme"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.wyhzb.hbsc.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,25 +22,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.ActivityCreateProject"
+            android:name="com.wyhzb.hbsc.activitys.ActivityCreateProject"
             android:label="@string/title_activity_create_project"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".activitys.ProjectBidding"
+            android:name="com.wyhzb.hbsc.activitys.ProjectBidding"
             android:label="@string/title_activity_project_bidding"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".activitys.ActivityPersonalInformation"
+            android:name="com.wyhzb.hbsc.activitys.ActivityPersonalInformation"
             android:label="@string/title_activity_personal_information"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".activitys.ActivityUserRegister"
+            android:name="com.wyhzb.hbsc.activitys.ActivityUserRegister"
             android:label="@string/title_activity_user_register"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -48,7 +48,7 @@
         </activity>
 
         <activity
-            android:name=".activitys.ActivityMyMainBoard"
+            android:name="com.wyhzb.hbsc.activitys.ActivityMyMainBoard"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -59,7 +59,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.ActivityManager"
+            android:name="com.wyhzb.hbsc.activitys.ActivityManager"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 

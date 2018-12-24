@@ -28,25 +28,25 @@
       <!-- 静态插入Fragment对象，使用Fragment做为面板 -->
       <fragment
           android:id="@+id/content_tab1"
-          android:name="com.szty.baohuzhu.fragments.FragmentEmpty"
+          android:name="com.wyhzb.hbsc.fragments.FragmentEmpty"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
 
       <fragment
           android:id="@+id/content_tab2"
-          android:name="com.szty.baohuzhu.fragments.FragmentHuzhu"
+          android:name="com.wyhzb.hbsc.fragments.FragmentHuzhu"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
 
       <fragment
           android:id="@+id/content_tab3"
-          android:name="com.szty.baohuzhu.fragments.FragmentEmpty"
+          android:name="com.wyhzb.hbsc.fragments.FragmentEmpty"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
 
       <fragment
           android:id="@+id/content_tab4"
-          android:name="com.szty.baohuzhu.fragments.FragmentMyMain"
+          android:name="com.wyhzb.hbsc.fragments.FragmentMyMain"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />
 
